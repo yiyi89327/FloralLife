@@ -7,6 +7,7 @@
         android:id="@+id/lv_main_top_author"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:divider="@color/textGray"/>
+        android:divider="@color/textGray"
+        android:dividerHeight="1px"/>
 
 </LinearLayout>
