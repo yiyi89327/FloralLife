@@ -35,7 +35,6 @@ public class TopActivity extends AppCompatActivity {
         initFragment();
         bindAdapter();
         tlMainTop.setupWithViewPager(vpMainTop);
-        tlMainTop.setTabMode(TabLayout.MODE_FIXED);
 
     }
 

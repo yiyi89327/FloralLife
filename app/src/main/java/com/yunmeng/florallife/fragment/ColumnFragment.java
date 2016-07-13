@@ -10,7 +10,8 @@ import android.view.ViewGroup;
 import com.yunmeng.florallife.R;
 
 /**
- * Created by my on 2016/7/12.
+ * Top中专栏一栏的Fragment
+ * Created by hanyiyi on 2016/7/12.
  */
 public class ColumnFragment extends Fragment {
 
