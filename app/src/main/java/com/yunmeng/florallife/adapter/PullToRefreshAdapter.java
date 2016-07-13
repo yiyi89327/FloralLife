@@ -5,8 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import java.util.List;
 
@@ -47,24 +45,10 @@ public class PullToRefreshAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+
         return null;
     }
 
-    public static class ViewHolder {
-        ImageView iv_zt_icon;
-        ImageView cv_zt_author_img;
-
-        TextView tv_zt_author_name;
-        TextView tv_zt_author_class;
-
-        TextView tv_zt_tag;
-        TextView tv_zt_title;
-        TextView tv_zt_explain;
-
-        TextView tv_zt_eye_num;
-        TextView tv_zt_collect_num;
-        TextView tv_zt_discuss_num;
-    }
 
 
 }

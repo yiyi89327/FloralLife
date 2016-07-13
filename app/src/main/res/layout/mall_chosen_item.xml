@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="230dp"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:paddingTop="2dp">
+
+    <ImageView
+        android:id="@+id/iv_chosen_icon"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/mall_chosen_item_icon"/>
+
+    <ImageView
+        android:id="@+id/iv_chosen_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/mall_chosen_item_label"
+        android:layout_below="@+id/iv_chosen_icon"
+        android:paddingTop="5dp"
+        android:layout_alignParentLeft="true"/>
+
+    <LinearLayout
+        android:id="@+id/ll_chosen_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/iv_chosen_icon"
+        android:layout_toRightOf="@+id/iv_chosen_label"
+        android:paddingTop="5dp"
+        android:paddingLeft="10dp"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/tv_chosen_entitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#bacac6"
+            android:textSize="12sp"
+            android:text="A SURPRISE"/>
+        <TextView
+            android:id="@+id/tv_chosen_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="12sp"
+            android:text="文艺生活-神秘箱（包月四次）"/>
+        <TextView
+            android:id="@+id/tv_chosen_price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="8sp"
+            android:textColor="#eacd76"
+            android:text="¥398"/>
+    </LinearLayout>
+
+</RelativeLayout>

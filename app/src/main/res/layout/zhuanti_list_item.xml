@@ -11,13 +11,13 @@
         android:id="@+id/iv_zt_icon"
         android:layout_width="wrap_content"
         android:layout_height="200dp"
-        android:src="@drawable/item_icon" />
+        android:src="@drawable/zt_item_icon" />
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/cv_zt_author_img"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:src="@drawable/item_author"
+        android:src="@drawable/zt_item_author"
         android:layout_marginRight="30dp"
         android:layout_marginEnd="30dp"
         android:layout_alignBottom="@+id/ll_zt_author"
