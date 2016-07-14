@@ -5,8 +5,6 @@
     android:layout_height="match_parent"
     tools:context="com.yunmeng.florallife.MainActivity">
 
-
-
     <RadioGroup
         android:id="@+id/rg"
         android:orientation="horizontal"
@@ -21,7 +19,6 @@
             android:button="@null"
             android:text="专题"
             android:textSize="12sp"
-
             android:drawableTop="@drawable/main_zt_img_selector"
             android:gravity="center_horizontal"
             android:layout_height="match_parent" />

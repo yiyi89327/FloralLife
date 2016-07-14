@@ -65,6 +65,7 @@ public class MainTopAuthorListAdapter extends BaseAdapter {
             viewHolder = (ViewHolder) convertView.getTag();
         }
 
+        // 填充各个控件的内容
         TopAuthor.ResultBean authorBean = authorList.get(position);
         Picasso.with(context).load(authorBean.getHeadImg()).into(viewHolder.civAuthorIcon);
         viewHolder.tvAuthorName.setText(authorBean.getUserName());

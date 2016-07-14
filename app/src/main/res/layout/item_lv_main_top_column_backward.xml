@@ -2,7 +2,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="190dp"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp">
 
 
     <ImageView
@@ -24,9 +26,11 @@
             android:layout_centerHorizontal="true"
             android:text="标题"
             android:gravity="center_horizontal"
-            android:textColor="#000000"/>
+            android:textColor="#000000"
+            android:textStyle="bold"/>
 
         <View
+            android:id="@+id/view_main_top_column2_top_line"
             android:layout_width="match_parent"
             android:layout_height="1.5dp"
             android:layout_marginLeft="50dp"
@@ -37,6 +41,7 @@
             android:layout_marginBottom="15dp"/>
 
         <View
+            android:id="@+id/view_main_top_column2_bottom_line"
             android:layout_width="match_parent"
             android:layout_height="1.5dp"
             android:layout_marginLeft="50dp"
@@ -56,13 +61,15 @@
             android:layout_marginTop="10dp"
             android:background="@drawable/kuang">
             <TextView
+                android:id="@+id/tv_main_top_column2_sign"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="FLORAL"
                 android:gravity="center"
                 android:textColor="@color/textGray"
-                android:textSize="10sp"/>
+                android:textSize="10sp"
+                android:textStyle="bold"/>
             <TextView
                 android:id="@+id/tv_main_top_column2_rank"
                 android:layout_width="match_parent"
@@ -73,13 +80,15 @@
                 android:textColor="#000000"
                 android:textSize="24sp"/>
             <TextView
+                android:id="@+id/tv_main_top_column2_sign2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:text="LIFE"
                 android:gravity="center"
                 android:textColor="@color/textGray"
-                android:textSize="10sp"/>
+                android:textSize="10sp"
+                android:textStyle="bold"/>
         </LinearLayout>
 
     </RelativeLayout>

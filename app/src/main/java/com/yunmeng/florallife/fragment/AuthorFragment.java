@@ -49,6 +49,11 @@ public class AuthorFragment extends Fragment {
         return view;
     }
 
+    private void bindAdapter() {
+        authorListAdapter = new MainTopAuthorListAdapter(authorList,getContext());
+        lvAuthor.setAdapter(authorListAdapter);
+    }
+
     private void initData() {
         OkHttpTool.newInstance().start(URLConstant.topBase + URLConstant.authorJoint).callback(new IOKCallBack() {
             @Override
@@ -59,10 +64,5 @@ public class AuthorFragment extends Fragment {
                 authorListAdapter.notifyDataSetChanged();
             }
         });
-    }
-
-    private void bindAdapter() {
-        authorListAdapter = new MainTopAuthorListAdapter(authorList,getContext());
-        lvAuthor.setAdapter(authorListAdapter);
     }
 }
