@@ -1,0 +1,47 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/shop_ll"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.yunmeng.florallife.frg.ShopFragment">
+
+    <RelativeLayout
+        android:id="@+id/shop_toolbar_rl"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:background="@color/toolbarcolor"
+        android:padding="5dp">
+
+        <CheckBox
+            android:id="@+id/shop_list_btn"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:background="@drawable/main_listbtn_selector"
+            android:button="@null" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_centerInParent="true"
+            android:text="商城"
+            android:textSize="18sp" />
+
+        <ImageView
+            android:id="@+id/shop_search"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:clickable="true"
+            android:src="@drawable/menu_right_search" />
+    </RelativeLayout>
+
+    <com.handmark.pulltorefresh.library.PullToRefreshListView
+        android:id="@+id/pull_lv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+
+</LinearLayout>

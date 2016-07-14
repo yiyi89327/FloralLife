@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">FloralLife</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string-array name="filter">
+        <item>文章</item>
+        <item>视频</item>
+    </string-array>
+    <string name="title">专题</string>
 </resources>

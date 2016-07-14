@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <ListView
+        android:id="@+id/classfy_list"
+        android:layout_width="match_parent"
+        android:layout_height="430dp" />
+    <ImageView
+        android:background="@color/toolbarcolor"
+        android:layout_width="match_parent"
+        android:layout_height="1dp" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        >
+        <ImageView
+            android:layout_width="120dp"
+            android:layout_height="30dp"
+            android:scaleType="centerInside"
+            android:layout_centerInParent="true"
+            android:background="@drawable/menu_bottom_verson"/>
+    </RelativeLayout>
+
+</LinearLayout>

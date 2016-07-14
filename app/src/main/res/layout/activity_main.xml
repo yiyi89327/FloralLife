@@ -3,12 +3,58 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.yunmeng.florallife.MainActivity">
 
 
 
+    <RadioGroup
+        android:id="@+id/rg"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_marginTop="3dp"
+        android:layout_height="50dp">
+        <RadioButton
+            android:id="@+id/simpletitle"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:button="@null"
+            android:text="专题"
+            android:textSize="12sp"
+
+            android:drawableTop="@drawable/main_zt_img_selector"
+            android:gravity="center_horizontal"
+            android:layout_height="match_parent" />
+        <RadioButton
+            android:id="@+id/shop"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:button="@null"
+            android:textSize="12sp"
+            android:text="商城"
+            android:drawableTop="@drawable/main_sc_img_seletor"
+            android:gravity="center_horizontal"
+            android:layout_height="match_parent" />
+        <RadioButton
+            android:id="@+id/mine"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:button="@null"
+            android:textSize="12sp"
+            android:text="我的"
+            android:drawableTop="@drawable/main_wd_img_seletor"
+            android:gravity="center_horizontal"
+            android:layout_height="match_parent" />
+    </RadioGroup>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/toolbarcolor"
+        android:layout_above="@+id/rg"/>
+    <LinearLayout
+        android:id="@+id/main_ll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_above="@+id/rg"/>
 </RelativeLayout>
