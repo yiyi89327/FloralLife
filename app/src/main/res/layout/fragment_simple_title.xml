@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:id="@+id/simpletitle_ll"
-    tools:context="com.yunmeng.florallife.frg.SimpleTitleFragment">
+    tools:context=".fragment.SimpleTitleFragment">
 
     <RelativeLayout
         android:id="@+id/simpletitle_toolbar_rl"

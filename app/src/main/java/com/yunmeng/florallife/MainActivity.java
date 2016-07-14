@@ -1,16 +1,16 @@
 package com.yunmeng.florallife;
 
+import android.content.Intent;
+import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
-import com.handmark.pulltorefresh.library.PullToRefreshListView;
-import com.yunmeng.florallife.frg.MineFragment;
-import com.yunmeng.florallife.frg.ShopFragment;
-import com.yunmeng.florallife.frg.SimpleTitleFragment;
+import com.yunmeng.florallife.activity.MyActivity;
+import com.yunmeng.florallife.fragment.ShopFragment;
+import com.yunmeng.florallife.fragment.SimpleTitleFragment;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
 
     private SimpleTitleFragment simpleTitleFragment;
     private ShopFragment shopFragment;
-    private MineFragment mineFragment;
+    private MyActivity myFragment;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,12 +59,8 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
                 }
                 break;
             case R.id.mine:
-                if (mineFragment == null){
-                    mineFragment = MineFragment.newInstance();
-                    transaction.add(R.id.main_ll,mineFragment);
-                }else {
-                    transaction.show(mineFragment);
-                }
+                Intent intent = new Intent(this,MyActivity.class);
+                startActivity(intent);
                 break;
         }
         transaction.commit();
@@ -76,9 +72,6 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
         }
         if (shopFragment != null) {
             transaction.hide(shopFragment);
-        }
-        if (mineFragment != null){
-        transaction.hide(mineFragment);
         }
     }
 }

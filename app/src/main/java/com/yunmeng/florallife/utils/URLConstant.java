@@ -21,7 +21,6 @@ public class URLConstant {
      * 2、content 作者详情页面的签名
      */
 
-
     // TOP: baseUrl：
     public static final String topBase = "http://m.htxq.net/servlet/SysArticleServlet?";
     // 作者 ：
@@ -38,7 +37,6 @@ public class URLConstant {
     // 视频：
     public static final String zhuantiVideo = "http://m.htxq.net/servlet/SysArticleServle t? pageSize=20&action=mainList&isVideo=true &currentPag eIndex=0&cateId=";
 
-
     // 商城
     // 商城导航栏：
     public static final String shoppingNavigationBar = "http://ec.htxq.net/rest/htxq/item/tree";
@@ -49,9 +47,9 @@ public class URLConstant {
     public static final String shoppingNavigationSuffix = "&pageIndex=1&pageSize=20";
 
     // 精选 ：
-    public static final String shoppingChosen = "http://ec.htxq.net/rest/htxq/index/jingList/1";
+    public static final String MALLCHOSEN = "http://ec.htxq.net/rest/htxq/index/jingList/1";
     // 商城 ：
-    public static final String shoppingMall = "http://ec.htxq.net/rest/htxq/index/theme";
+    public static final String MAllMall = "http://ec.htxq.net/rest/htxq/index/theme";
     // 积分 ：
     public static final String shoppingScore = "http://m.htxq.net/rest/htxq/index/jifenList/1";
     // 积分规则 ：

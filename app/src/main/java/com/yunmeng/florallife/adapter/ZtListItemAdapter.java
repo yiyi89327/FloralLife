@@ -84,6 +84,7 @@ public class ZtListItemAdapter extends BaseAdapter {
         }
 
         ZtListItem.ResultBean item = data.get(position);
+
         Picasso.with(context).load(item.getSmallIcon()).into(viewHolder.iv_zt_icon);
         Picasso.with(context).load(item.getAuthor().getHeadImg()).into(viewHolder.cv_zt_author_img);
         viewHolder.tv_zt_author_name.setText(item.getAuthor().getUserName());

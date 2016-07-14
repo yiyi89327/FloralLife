@@ -1,4 +1,4 @@
-package com.yunmeng.florallife.frg;
+package com.yunmeng.florallife.fragment;
 
 import android.content.Context;
 import android.content.Intent;
@@ -25,6 +25,7 @@ import butterknife.ButterKnife;
 
 
 public class SimpleTitleFragment extends Fragment {
+
     public static SimpleTitleFragment newInstance() {
         SimpleTitleFragment fragment = new SimpleTitleFragment();
         Bundle args = new Bundle();
