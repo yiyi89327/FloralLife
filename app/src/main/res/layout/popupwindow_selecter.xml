@@ -6,17 +6,21 @@
     android:paddingTop="15dp"
     android:background="@drawable/main_filter_bg">
    <TextView
+       android:id="@+id/topcenter_article"
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
        android:gravity="center_horizontal"
        android:textSize="18sp"
+       android:clickable="true"
        android:textColor="@color/black"
        android:text="文章"/>
     <TextView
+        android:id="@+id/topcenter_video"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:textSize="18sp"
+        android:clickable="true"
         android:layout_marginTop="10dp"
         android:textColor="@color/black"
         android:text="视频"/>

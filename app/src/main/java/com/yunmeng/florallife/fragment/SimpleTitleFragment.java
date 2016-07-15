@@ -24,9 +24,11 @@ import com.androidxx.yangjw.httplibrary.OkHttpTool;
 import com.google.gson.Gson;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
 import com.yunmeng.florallife.R;
+import com.yunmeng.florallife.activity.ArticleActivity;
 import com.yunmeng.florallife.activity.DetailActivity;
 import com.yunmeng.florallife.activity.SimpleGuideActivity;
 import com.yunmeng.florallife.activity.TopActivity;
+import com.yunmeng.florallife.activity.VideoActivity;
 import com.yunmeng.florallife.adapter.GuideSimpleAdapter;
 import com.yunmeng.florallife.adapter.ZtListItemAdapter;
 import com.yunmeng.florallife.bean.GuidelistValue;
@@ -100,6 +102,8 @@ public class SimpleTitleFragment extends Fragment {
     }
 
     private ListView classfylv;
+    private TextView carticle;
+    private TextView cvideo;
     List<GuidelistValue.ResultBean> classfyvl = new ArrayList<>();
     List<String> classfyName = new ArrayList<>();
     GuidelistValue guidelistValue;
@@ -143,6 +147,24 @@ public class SimpleTitleFragment extends Fragment {
                             selecter.setChecked(false);
                         }
                     });
+                    carticle = (TextView) views.findViewById(R.id.topcenter_article);
+                    cvideo = (TextView) views.findViewById(R.id.topcenter_video);
+
+                    carticle.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent intent1 = new Intent(mContext, ArticleActivity.class);
+                            startActivity(intent1);
+                        }
+                    });
+                    cvideo.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent intent1 = new Intent(mContext, VideoActivity.class);
+                            startActivity(intent1);
+                        }
+                    });
+
                 }else {
                     popupWindow.dismiss();
                 }
