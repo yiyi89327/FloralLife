@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.yunmeng.florallife">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -10,21 +10,30 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity"
-            android:theme="@style/Theme.Design.Light.NoActionBar">
+        <activity
+            android:name=".MainActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".activity.TopActivity"
-            android:theme="@style/Theme.Design.Light.NoActionBar"/>
-        <activity android:name=".activity.MyActivity"
-            android:theme="@style/Theme.Design.Light.NoActionBar"/>
-        <activity android:name=".activity.MyAgreementActivity"
-            android:theme="@style/Theme.Design.Light.NoActionBar"/>
+        <activity
+            android:name=".activity.TopActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".activity.SimpleGuideActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".activity.DetailActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
+        <activity
+            android:name=".activity.MyActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
+        <activity
+            android:name=".activity.MyAgreementActivity"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"></activity>
 
     </application>
 

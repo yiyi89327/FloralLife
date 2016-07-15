@@ -1,4 +1,4 @@
-package com.yunmeng.florallife.content;
+package com.yunmeng.florallife.bean;
 
 import java.util.List;
 

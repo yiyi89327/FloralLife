@@ -6,18 +6,19 @@
     <ListView
         android:id="@+id/classfy_list"
         android:layout_width="match_parent"
-        android:layout_height="430dp" />
+        android:layout_marginTop="60dp"
+        android:layout_height="440dp" />
     <ImageView
         android:background="@color/toolbarcolor"
         android:layout_width="match_parent"
         android:layout_height="1dp" />
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="70dp"
         >
         <ImageView
             android:layout_width="120dp"
-            android:layout_height="30dp"
+            android:layout_height="35dp"
             android:scaleType="centerInside"
             android:layout_centerInParent="true"
             android:background="@drawable/menu_bottom_verson"/>

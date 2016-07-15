@@ -36,7 +36,7 @@
 
         <TextView
             android:id="@+id/simpletitle_top"
-            android:layout_width="35dp"
+            android:layout_width="wrap_content"
             android:layout_height="30dp"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
@@ -46,8 +46,8 @@
             android:textSize="17sp" />
     </RelativeLayout>
 
-    <ListView
-        android:id="@+id/simpletitle_listview"
+    <com.handmark.pulltorefresh.library.PullToRefreshListView
+        android:id="@+id/sipmletitle_pull_lv"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 </LinearLayout>

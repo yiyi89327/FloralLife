@@ -5,59 +5,12 @@ import java.util.List;
 /**
  * Created by my on 2016/7/12.
  */
-public class ZtListItem {
-    /**
-     * msg : 已获取文章列表
-     * result : [{"appoint":21,"author":{"articleCount":0,"attentionCount":0,"attentioned":false,"auth":"专家","birthday":"","championM":false,"championW":false,"championY":false,"city":"","content":"定义自己的美好生活\n","countryCode":"","createDate":"","dingYue":false,"email":"","experience":0,"fansCount":0,"gag":false,"gagBeginDate":"","gagEndDate":"","headImg":"http://static.htxq.net/UploadFiles/headimg/20160422164405309.jpg","id":"4a3dab7f-1168-4a61-930c-f6bc0f989f32","identity":"","imQQ":"","imWeibo":"","imWeixin":"","integral":0,"j_PUSH_CODE":"","jian":false,"level":0,"listContent":[],"loginDate":"","market":"","mobile":"18618234090","newAuth":"1","newPassword":"","occSelected":0,"occupation":"","password":"","realName":"","sex":"","speciality":"","state":"","subscibeNum":97449,"terminal":"","token":"","uplevelPercent":"","userName":"花田小憩","validDate_M":"","validDate_W":"","validDate_Y":""},"category":{"createDate":"2015-09-17 10:00:16.0","id":"79eb0990-3cfd-4d6f-aabd-93ba001d0076","name":"家居庭院","order":7},"check":true,"content":"","content2":"","content3":"","contentTitle1":"","contentTitle2":"","contentTitle3":"","createDate":"2016-07-12 21:00:48.0","desc":"每一种花都应该有属于自己的独立空间，花儿该搭配怎样的容器呢？那些奇怪的容器又该怎样得到诠释呢？花田小憩 第二季 第2集 \u201c花与器\u201d让我们一起了解那简单易懂的\u201c干货\u201d！","descIcon":"","descTitle":"","favo":0,"fnCommentNum":0,"fnCuringNum":0,"fnDifficultyNum":0,"fnGoodsIds":"","fnHumidityNum":0,"fnIsVph":0,"fnVphReadNum":0,"goodsList":[],"hasAddFavo":false,"hasAppoint":false,"id":"09c2d11a-e02d-4c2e-96ee-3c6c6784ec1b","keywords":"","newAppoint":2,"newFavo":0,"newRead":63,"order":259,"pageUrl":"http://m.htxq.net//servlet/SysArticleServlet?action=preview&artId=09c2d11a-e02d-4c2e-96ee-3c6c6784ec1b","pass":1,"pushTime":"","read":526,"share":0,"sharePageUrl":"http://m.htxq.net//servlet/SysArticleServlet?action=sharePreview&artId=09c2d11a-e02d-4c2e-96ee-3c6c6784ec1b","smallIcon":"http://static.htxq.net/UploadFiles/2016/07/12/20160712205521460017.jpg","title":"花与器 － 第二季 第2集 预告片","top":false,"video":true,"videoUrl":"http://static.htxq.net/UploadFiles/2016/07/12/20160712205532644685.mp4"},{"appoint":60,"author":{"articleCount":0,"attentionCount":0,"attentioned":false,"auth":"专家","birthday":"","championM":false,"championW":false,"championY":false,"city":"","content":"定义自己的美好生活\n","countryCode":"","createDate":"","dingYue":false,"email":"","experience":0,"fansCount":0,"gag":false,"gagBeginDate":"","gagEndDate":"","headImg":"http://static.htxq.net/UploadFiles/headimg/20160422164405309.jpg","id":"4a3dab7f-1168-4a61-930c-f6bc0f989f32","identity":"","imQQ":"","imWeibo":"","imWeixin":"","integral":0,"j_PUSH_CODE":"","jian":false,"level":0,"listContent":[],"loginDate":"","market":"","mobile":"18618234090","newAuth":"1","newPassword":"","occSelected":0,"occupation":"","password":"","realName":"","sex":"","speciality":"","state":"","subscibeNum":97449,"terminal":"","token":"","uplevelPercent":"","userName":"花田小憩","validDate_M":"","validDate_W":"","validDate_Y":""},"category":{"createDate":"2015-09-17 10:00:16.0","id":"79eb0990-3cfd-4d6f-aabd-93ba001d0076","name":"家居庭院","order":7},"check":true,"content":"","content2":"","content3":"","contentTitle1":"","contentTitle2":"","contentTitle3":"","createDate":"2016-07-12 20:31:01.0","desc":"壁纸保存步骤：点击图片并打开→长按图片→点击保存","descIcon":"","descTitle":"","favo":0,"fnCommentNum":4,"fnCuringNum":0,"fnDifficultyNum":0,"fnGoodsIds":"","fnHumidityNum":0,"fnIsVph":0,"fnVphReadNum":0,"goodsList":[],"hasAddFavo":false,"hasAppoint":false,"id":"7cdfa71a-8b5d-4f1e-b628-da8a86e0c91a","keywords":"壁纸","newAppoint":38,"newFavo":0,"newRead":1026,"order":259,"pageUrl":"http://m.htxq.net//servlet/SysArticleServlet?action=preview&artId=7cdfa71a-8b5d-4f1e-b628-da8a86e0c91a","pass":1,"pushTime":"","read":2235,"share":14,"sharePageUrl":"http://m.htxq.net//servlet/SysArticleServlet?action=sharePreview&artId=7cdfa71a-8b5d-4f1e-b628-da8a86e0c91a","smallIcon":"http://static.htxq.net/UploadFiles/2016/07/12/20160712200938307505.jpg","title":"那些花儿的\u201c壁纸\u201d - 浪漫系列\t","top":false,"video":false,"videoUrl":""},{"appoint":53,"author":{"articleCount":0,"attentionCount":0,"attentioned":false,"auth":"专家","birthday":"","championM":false,"championW":false,"championY":false,"city":"","content":"一起虚度时光 ","countryCode":"","createDate":"","dingYue":false,"email":"","experience":0,"fansCount":0,"gag":false,"gagBeginDate":"","gagEndDate":"","headImg":"http://static.htxq.net/UploadFiles/headimg/20160425133310995.jpg","id":"02539f4c-e452-455f-8fec-c106b9f6ac04","identity":"资深设计师","imQQ":"","imWeibo":"","imWeixin":"","integral":0,"j_PUSH_CODE":"","jian":false,"level":0,"listContent":[],"loginDate":"","market":"","mobile":"18217331013","newAuth":"2","newPassword":"","occSelected":0,"occupation":"","password":"","realName":"","sex":"","speciality":"","state":"","subscibeNum":8049,"terminal":"","token":"","uplevelPercent":"","userName":"一窝时光","validDate_M":"","validDate_W":"","validDate_Y":""},"category":{"createDate":"2015-09-17 10:00:16.0","id":"79eb0990-3cfd-4d6f-aabd-93ba001d0076","name":"家居庭院","order":7},"check":true,"content":"","content2":"","content3":"","contentTitle1":"","contentTitle2":"","contentTitle3":"","createDate":"2016-07-12 13:31:23.0","desc":"养多肉的乐趣就在于每个季节的颜色状态都不一样，特别是温差大的时候，多肉们都羞红了脸，真是惹人爱呢！","descIcon":"/UploadFiles/2016/05/18/20160518164509582754.jpg","descTitle":"","favo":0,"fnCommentNum":8,"fnCuringNum":0,"fnDifficultyNum":0,"fnGoodsIds":"","fnHumidityNum":0,"fnIsVph":0,"fnVphReadNum":0,"goodsList":[],"hasAddFavo":false,"hasAppoint":false,"id":"62666c9d-03d1-4eff-ba4c-6ca82700c068","keywords":"手绘多肉植物－ 手绘 多肉 乌木 一窝时光 缤纷小物","newAppoint":53,"newFavo":1,"newRead":1185,"order":258,"pageUrl":"http://m.htxq.net//servlet/SysArticleServlet?action=preview&artId=62666c9d-03d1-4eff-ba4c-6ca82700c068","pass":1,"pushTime":"","read":1185,"share":207,"sharePageUrl":"http://m.htxq.net//servlet/SysArticleServlet?action=sharePreview&artId=62666c9d-03d1-4eff-ba4c-6ca82700c068","smallIcon":"http://static.htxq.net/UploadFiles/2016/07/07/20160707105512207855.jpg","title":"那一抹迷人的红｜乌木杂","top":false,"video":false,"videoUrl":""},{"appoint":235,"author":{"articleCount":0,"attentionCount":0,"attentioned":false,"auth":"专家","birthday":"","championM":false,"championW":false,"championY":false,"city":"","content":"曹雪也是曹小花","countryCode":"","createDate":"","dingYue":false,"email":"","experience":0,"fansCount":0,"gag":false,"gagBeginDate":"","gagEndDate":"","headImg":"http://static.htxq.net/UploadFiles/headimg/20160531184033453.jpg","id":"493a5ab4-e5ab-43bd-9586-58aea47bed5d","identity":"花艺家","imQQ":"","imWeibo":"","imWeixin":"","integral":0,"j_PUSH_CODE":"","jian":false,"level":0,"listContent":[],"loginDate":"","market":"","mobile":"13811624090","newAuth":"2","newPassword":"","occSelected":0,"occupation":"","password":"","realName":"","sex":"","speciality":"","state":"","subscibeNum":4872,"terminal":"","token":"","uplevelPercent":"","userName":"曹小花","validDate_M":"","validDate_W":"","validDate_Y":""},"category":{"createDate":"2015-09-17 10:00:16.0","id":"79eb0990-3cfd-4d6f-aabd-93ba001d0076","name":"家居庭院","order":7},"check":true,"content":"","content2":"","content3":"","contentTitle1":"","contentTitle2":"","contentTitle3":"","createDate":"2016-07-11 20:38:34.0","desc":"不要在意户外40℃的高温，请保持一份清爽纯美的优雅。生活本来就是一场寻美之途，你有何必在意那些丑的事物呢？","descIcon":"","descTitle":"","favo":1,"fnCommentNum":192,"fnCuringNum":0,"fnDifficultyNum":0,"fnGoodsIds":"","fnHumidityNum":0,"fnIsVph":0,"fnVphReadNum":0,"goodsList":[],"hasAddFavo":false,"hasAppoint":false,"id":"94711e24-286e-479e-86af-0aa3cb048741","keywords":"花间小事,曹小花,我的花店日志，花店","newAppoint":163,"newFavo":3,"newRead":4137,"order":257,"pageUrl":"http://m.htxq.net//servlet/SysArticleServlet?action=preview&artId=94711e24-286e-479e-86af-0aa3cb048741","pass":1,"pushTime":"","read":8055,"share":79,"sharePageUrl":"http://m.htxq.net//servlet/SysArticleServlet?action=sharePreview&artId=94711e24-286e-479e-86af-0aa3cb048741","smallIcon":"http://static.htxq.net/UploadFiles/2016/07/11/20160711185257024309.jpg","title":"我的花店日志－夏日治愈系列［06］","top":false,"video":false,"videoUrl":""},{"appoint":154,"author":{"articleCount":0,"attentionCount":0,"attentioned":false,"auth":"专家","birthday":"","championM":false,"championW":false,"championY":false,"city":"","content":"夜市NightChic 创始人","countryCode":"","createDate":"","dingYue":false,"email":"","experience":0,"fansCount":0,"gag":false,"gagBeginDate":"","gagEndDate":"","headImg":"http://static.htxq.net/UploadFiles/headimg/20160617003342753.jpg","id":"7a301cf4-3a7d-4dfd-a216-020a572ea055","identity":"作家","imQQ":"","imWeibo":"","imWeixin":"","integral":0,"j_PUSH_CODE":"","jian":false,"level":0,"listContent":[],"loginDate":"","market":"","mobile":"18575554595","newAuth":"2","newPassword":"","occSelected":0,"occupation":"","password":"","realName":"","sex":"","speciality":"","state":"","subscibeNum":971,"terminal":"","token":"","uplevelPercent":"","userName":"晚妹","validDate_M":"","validDate_W":"","validDate_Y":""},"category":{"createDate":"2015-09-17 10:00:16.0","id":"79eb0990-3cfd-4d6f-aabd-93ba001d0076","name":"家居庭院","order":7},"check":true,"content":"","content2":"","content3":"","contentTitle1":"","contentTitle2":"","contentTitle3":"","createDate":"2016-07-11 13:25:59.0","desc":"花卉走进厨房已经有好几百年历史了，从古罗马时代到印加。而在英国维多利亚时期，吃花成了一种高雅的饮食习惯。","descIcon":"","descTitle":"","favo":1,"fnCommentNum":13,"fnCuringNum":0,"fnDifficultyNum":0,"fnGoodsIds":"","fnHumidityNum":0,"fnIsVph":0,"fnVphReadNum":0,"goodsList":[],"hasAddFavo":false,"hasAppoint":false,"id":"852a68d9-54ff-4c8e-9aff-13f6f5e6f729","keywords":"舌尖，花艺，晚妹","newAppoint":108,"newFavo":3,"newRead":3077,"order":256,"pageUrl":"http://m.htxq.net//servlet/SysArticleServlet?action=preview&artId=852a68d9-54ff-4c8e-9aff-13f6f5e6f729","pass":1,"pushTime":"","read":4421,"share":50,"sharePageUrl":"http://m.htxq.net//servlet/SysArticleServlet?action=sharePreview&artId=852a68d9-54ff-4c8e-9aff-13f6f5e6f729","smallIcon":"http://static.htxq.net/UploadFiles/2016/07/11/20160711122201308919.jpg","title":"舌尖上的花艺","top":false,"video":false,"videoUrl":""}]
-     * status : true
-     */
+public class ZtListItemValue {
+
 
     private String msg;
     private boolean status;
-    /**
-     * appoint : 21
-     * author : {"articleCount":0,"attentionCount":0,"attentioned":false,"auth":"专家","birthday":"","championM":false,"championW":false,"championY":false,"city":"","content":"定义自己的美好生活\n","countryCode":"","createDate":"","dingYue":false,"email":"","experience":0,"fansCount":0,"gag":false,"gagBeginDate":"","gagEndDate":"","headImg":"http://static.htxq.net/UploadFiles/headimg/20160422164405309.jpg","id":"4a3dab7f-1168-4a61-930c-f6bc0f989f32","identity":"","imQQ":"","imWeibo":"","imWeixin":"","integral":0,"j_PUSH_CODE":"","jian":false,"level":0,"listContent":[],"loginDate":"","market":"","mobile":"18618234090","newAuth":"1","newPassword":"","occSelected":0,"occupation":"","password":"","realName":"","sex":"","speciality":"","state":"","subscibeNum":97449,"terminal":"","token":"","uplevelPercent":"","userName":"花田小憩","validDate_M":"","validDate_W":"","validDate_Y":""}
-     * category : {"createDate":"2015-09-17 10:00:16.0","id":"79eb0990-3cfd-4d6f-aabd-93ba001d0076","name":"家居庭院","order":7}
-     * check : true
-     * content :
-     * content2 :
-     * content3 :
-     * contentTitle1 :
-     * contentTitle2 :
-     * contentTitle3 :
-     * createDate : 2016-07-12 21:00:48.0
-     * desc : 每一种花都应该有属于自己的独立空间，花儿该搭配怎样的容器呢？那些奇怪的容器又该怎样得到诠释呢？花田小憩 第二季 第2集 “花与器”让我们一起了解那简单易懂的“干货”！
-     * descIcon :
-     * descTitle :
-     * favo : 0
-     * fnCommentNum : 0
-     * fnCuringNum : 0
-     * fnDifficultyNum : 0
-     * fnGoodsIds :
-     * fnHumidityNum : 0
-     * fnIsVph : 0
-     * fnVphReadNum : 0
-     * goodsList : []
-     * hasAddFavo : false
-     * hasAppoint : false
-     * id c6784: 09c2d11a-e02d-4c2e-96ee-3c6ec1b
-     * keywords :
-     * newAppoint : 2
-     * newFavo : 0
-     * newRead : 63
-     * order : 259
-     * pageUrl : http://m.htxq.net//servlet/SysArticleServlet?action=preview&artId=09c2d11a-e02d-4c2e-96ee-3c6c6784ec1b
-     * pass : 1
-     * pushTime :
-     * read : 526
-     * share : 0
-     * sharePageUrl : http://m.htxq.net//servlet/SysArticleServlet?action=sharePreview&artId=09c2d11a-e02d-4c2e-96ee-3c6c6784ec1b
-     * smallIcon : http://static.htxq.net/UploadFiles/2016/07/12/20160712205521460017.jpg
-     * title : 花与器 － 第二季 第2集 预告片
-     * top : false
-     * video : true
-     * videoUrl : http://static.htxq.net/UploadFiles/2016/07/12/20160712205532644685.mp4
-     */
+
 
     private List<ResultBean> result;
 
@@ -87,59 +40,6 @@ public class ZtListItem {
 
     public static class ResultBean {
         private int appoint;
-        /**
-         * articleCount : 0
-         * attentionCount : 0
-         * attentioned : false
-         * auth : 专家
-         * birthday :
-         * championM : false
-         * championW : false
-         * championY : false
-         * city :
-         * content : 定义自己的美好生活
-
-         * countryCode :
-         * createDate :
-         * dingYue : false
-         * email :
-         * experience : 0
-         * fansCount : 0
-         * gag : false
-         * gagBeginDate :
-         * gagEndDate :
-         * headImg : http://static.htxq.net/UploadFiles/headimg/20160422164405309.jpg
-         * id : 4a3dab7f-1168-4a61-930c-f6bc0f989f32
-         * identity :
-         * imQQ :
-         * imWeibo :
-         * imWeixin :
-         * integral : 0
-         * j_PUSH_CODE :
-         * jian : false
-         * level : 0
-         * listContent : []
-         * loginDate :
-         * market :
-         * mobile : 18618234090
-         * newAuth : 1
-         * newPassword :
-         * occSelected : 0
-         * occupation :
-         * password :
-         * realName :
-         * sex :
-         * speciality :
-         * state :
-         * subscibeNum : 97449
-         * terminal :
-         * token :
-         * uplevelPercent :
-         * userName : 花田小憩
-         * validDate_M :
-         * validDate_W :
-         * validDate_Y :
-         */
 
         private AuthorBean author;
         /**
