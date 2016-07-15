@@ -1,17 +1,20 @@
 package com.yunmeng.florallife.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.androidxx.yangjw.httplibrary.IOKCallBack;
 import com.androidxx.yangjw.httplibrary.OkHttpTool;
 import com.google.gson.Gson;
 import com.yunmeng.florallife.R;
+import com.yunmeng.florallife.activity.AuthorActivity;
 import com.yunmeng.florallife.adapter.MainTopAuthorListAdapter;
 import com.yunmeng.florallife.bean.TopAuthor;
 import com.yunmeng.florallife.utils.URLConstant;
@@ -62,6 +65,25 @@ public class AuthorFragment extends Fragment {
                 TopAuthor topAuthor = gson.fromJson(result, TopAuthor.class);
                 authorList.addAll(topAuthor.getResult());
                 authorListAdapter.notifyDataSetChanged();
+            }
+        });
+    }
+
+    /**
+     * 在此周期中设置了ListView的监听
+     * 点击跳转作者个人中心
+     * @param savedInstanceState
+     */
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        lvAuthor.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(getContext(), AuthorActivity.class);
+                TopAuthor.ResultBean authorBean = authorList.get(position);
+                intent.putExtra("id", authorBean.getId());
+                startActivity(intent);
             }
         });
     }
