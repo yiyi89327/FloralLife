@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.WindowManager;
 
+import com.yunmeng.florallife.MainActivity;
 import com.yunmeng.florallife.R;
 
 /**
@@ -32,6 +33,10 @@ public class MyActivity extends AppCompatActivity {
             case R.id.tv_my_agreement:
                 Intent intent = new Intent(this,MyAgreementActivity.class);
                 startActivity(intent);
+                break;
+            case R.id.iv_my_back:
+                Intent intent1 = new Intent(this,MainActivity.class);
+                startActivity(intent1);
                 break;
         }
     }

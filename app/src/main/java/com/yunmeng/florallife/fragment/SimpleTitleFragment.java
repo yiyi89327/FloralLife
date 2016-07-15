@@ -118,6 +118,7 @@ public class SimpleTitleFragment extends Fragment {
                 bundle.putString("weburl",ztlist.get(position).getPageUrl());
                 bundle.putString("time",ztlist.get(position).getCreateDate());
                 bundle.putString("readnum",ztlist.get(position).getRead()+"");
+                bundle.putString("vediourl",ztlist.get(position).getVideoUrl());
                 bundle.putString("likenum",ztlist.get(position).getAppoint()+"");
                 bundle.putString("commentnum",ztlist.get(position).getFnCommentNum()+"");
                 intent.putExtra("bundle",bundle);
