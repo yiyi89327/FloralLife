@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/my_fragment_bg">
+
+    <Button
+        android:id="@+id/btn_my_forget_back"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_alignParentLeft="true"
+        android:onClick="onClick"
+        android:background="@drawable/my_fragment_back"/>
+
+    <Button
+        android:id="@+id/btn_my_forget_close"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_alignParentRight="true"
+        android:onClick="onClick"
+        android:background="@drawable/my_fragment_close"/>
+
+    <ImageView
+        android:id="@+id/iv_my_forget_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/htxq_logo"
+        android:paddingTop="30dp"
+        android:layout_centerHorizontal="true"/>
+
+    <LinearLayout
+        android:id="@+id/ll_my_forget_phone"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:orientation="horizontal"
+        android:layout_below="@+id/iv_my_forget_logo">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left|center_vertical"
+            android:textSize="10sp"
+            android:text="输入手机号"/>
+        <EditText
+            android:id="@+id/et_my_forget_phone"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:textSize="10sp"
+            android:background="@null"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="10sp"
+            android:layout_gravity="center_vertical"
+            android:paddingRight="10dp"
+            android:text="中国+86"/>
+        <Button
+            android:id="@+id/btn_my_forget_country"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_gravity="right|center_vertical"
+            android:onClick="onClick"
+            android:background="@drawable/my_fragment_right" />
+    </LinearLayout>
+
+    <View
+        android:id="@+id/v_my_forget_line1"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/black"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_below="@+id/ll_my_forget_phone"/>
+
+    <LinearLayout
+        android:id="@+id/ll_my_forget_code"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:orientation="horizontal"
+        android:layout_below="@+id/v_my_forget_line1">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left|center_vertical"
+            android:textSize="10sp"
+            android:text="输入手机号"/>
+        <EditText
+            android:id="@+id/et_my_forget_code"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:textSize="10sp"
+            android:background="@null"/>
+        <Button
+            android:id="@+id/btn_my_forget_code"
+            android:layout_width="70dp"
+            android:layout_height="20dp"
+            android:layout_gravity="right|center_vertical"
+            android:text="获取验证码"
+            android:textSize="10sp"
+            android:background="@drawable/kuang" />
+    </LinearLayout>
+
+    <View
+        android:id="@+id/v_my_forget_line2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/black"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_below="@+id/ll_my_forget_code"/>
+
+    <LinearLayout
+        android:id="@+id/ll_my_forget_newpsw"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:orientation="horizontal"
+        android:layout_below="@+id/v_my_forget_line2">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left|center_vertical"
+            android:textSize="10sp"
+            android:text="输入新密码"/>
+        <EditText
+            android:id="@+id/et_my_forget_newpsw"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:textSize="10sp"
+            android:background="@null"/>
+    </LinearLayout>
+
+    <View
+        android:id="@+id/v_my_forget_line3"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/black"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_below="@+id/ll_my_forget_newpsw"/>
+
+    <Button
+        android:id="@+id/btn_my_forget_finish"
+        android:layout_width="220dp"
+        android:layout_height="30dp"
+        android:textSize="10sp"
+        android:background="@drawable/kuang"
+        android:text="完成"
+        android:layout_marginTop="30dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/v_my_forget_line3"/>
+
+</RelativeLayout>
