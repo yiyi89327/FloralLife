@@ -66,7 +66,7 @@ public class ColumnFragment extends Fragment {
     }
 
     private void initData(){
-        OkHttpTool.newInstance().start(URLConstant.topBase + URLConstant.coulmnJoint).callback(new IOKCallBack() {
+        OkHttpTool.newInstance().start(URLConstant.TOP_BASE + URLConstant.COULMN_JOINT).callback(new IOKCallBack() {
             @Override
             public void success(String result) {
                 Gson gson = new Gson();

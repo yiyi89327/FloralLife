@@ -1,5 +1,8 @@
 package com.yunmeng.florallife.bean;
 
+import android.os.Parcelable;
+
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -95,7 +98,7 @@ public class PersonalCenter {
         this.status = status;
     }
 
-    public static class ResultBean {
+    public static class ResultBean implements Serializable {
         private int articleCount;
         private int attentionCount;
         private boolean attentioned;
@@ -601,6 +604,21 @@ public class PersonalCenter {
             public void setFnUserID(String fnUserID) {
                 this.fnUserID = fnUserID;
             }
+
+            ///////////////////////////////////////////////////////////////
+
+            @Override
+            public String toString() {
+                return "ListContentBean{" +
+                        "contentFirst='" + contentFirst + '\'' +
+                        ", contentSecond='" + contentSecond + '\'' +
+                        ", contentThird='" + contentThird + '\'' +
+                        ", fnId='" + fnId + '\'' +
+                        ", fnUserID='" + fnUserID + '\'' +
+                        '}';
+            }
+
+            //////////////////////////////////////////////////////////////////
         }
     }
 }

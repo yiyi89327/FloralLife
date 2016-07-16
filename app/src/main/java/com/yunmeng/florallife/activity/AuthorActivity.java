@@ -1,6 +1,8 @@
 package com.yunmeng.florallife.activity;
 
 import android.content.Intent;
+import android.os.Handler;
+import android.os.Message;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
@@ -36,7 +38,7 @@ public class AuthorActivity extends AppCompatActivity {
 
     private List<String> tabTitle = new ArrayList<>();
     private List<Fragment> fragmentList = new ArrayList<>();
-    private List<PersonalCenter.ResultBean.ListContentBean> introList = new ArrayList<>();
+    private ArrayList<PersonalCenter.ResultBean.ListContentBean> introList = new ArrayList<>();
 
     private ImageView ivAuthorIconBig;
     private ImageView ivAuthorBack;
@@ -51,6 +53,17 @@ public class AuthorActivity extends AppCompatActivity {
 
     private MyViewPagerAdapter myViewPagerAdapter;
 
+    private Handler handler = new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            initFragment();
+            bindAdapter();
+            tlAuthor.setupWithViewPager(vpAuthor);
+            setupViewWithData();
+        }
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,10 +71,7 @@ public class AuthorActivity extends AppCompatActivity {
 
         initTabData();
         initView();
-        initFragment();
-        bindAdapter();
-        tlAuthor.setupWithViewPager(vpAuthor);
-        setupViewWithData();
+        initFragmentBundle();
 
         initListener();
 
@@ -88,6 +98,14 @@ public class AuthorActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 ivAuthorIconBig.setVisibility(View.GONE);
+            }
+        });
+
+        // 点击订阅   这里要登录  没写！！！！！！！！！！！！！！！！！！！！
+        tvAuthorSubscribe.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
             }
         });
 
@@ -123,11 +141,33 @@ public class AuthorActivity extends AppCompatActivity {
     }
 
     /**
+     * 获取需要传给Fragment的值
+     */
+    private void initFragmentBundle() {
+        Intent intent = getIntent();
+        String id = intent.getStringExtra("id");
+        String url = URLConstant.AUTHOR_CENTER_BASE + id;
+        OkHttpTool.newInstance().start(url).callback(new IOKCallBack() {
+            @Override
+            public void success(String result) {
+                Gson gson = new Gson();
+                PersonalCenter personalCenter = gson.fromJson(result, PersonalCenter.class);
+                PersonalCenter.ResultBean resultBean = personalCenter.getResult();
+                // 获取介绍Fragment的内容，分解为可以传递的类型，以供传值
+                introList = (ArrayList<PersonalCenter.ResultBean.ListContentBean>) resultBean.getListContent();
+                handler.sendEmptyMessage(1);
+            }
+        });
+    }
+
+    /**
      * 初始化本页的3个Fragment
      */
     private void initFragment(){
+
+        // 实例化Fragment，传递上述的值
         fragmentList.add(AuthorColumnFragment.newInstance());
-        fragmentList.add(AuthorIntroFragment.newInstance());
+        fragmentList.add(AuthorIntroFragment.newInstance(introList));
         fragmentList.add(AuthorFansFragment.newInstance());
     }
 
@@ -147,7 +187,7 @@ public class AuthorActivity extends AppCompatActivity {
     public void setupViewWithData(){
         Intent intent = getIntent();
         String id = intent.getStringExtra("id");
-        String url = URLConstant.authorCenterBase + id;
+        String url = URLConstant.AUTHOR_CENTER_BASE + id;
         OkHttpTool.newInstance().start(url).callback(new IOKCallBack() {
             @Override
             public void success(String result) {
@@ -161,8 +201,7 @@ public class AuthorActivity extends AppCompatActivity {
                 tvAuthorCall.setText(resultBean.getIdentity());
                 tvAuthorSlogan.setText(resultBean.getContent());
                 tvAuthorSubscribeNum.setText("已有" + resultBean.getSubscibeNum() + "人订阅");
-                //
-                introList = resultBean.getListContent();
+
             }
         });
     }

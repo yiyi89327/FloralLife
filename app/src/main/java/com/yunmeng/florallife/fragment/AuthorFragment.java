@@ -22,8 +22,6 @@ import com.yunmeng.florallife.utils.URLConstant;
 import java.util.ArrayList;
 import java.util.List;
 
-import okhttp3.OkHttpClient;
-
 /**
  * Top中作者一栏的Fragment
  * Created by hanyiyi on 2016/7/12.
@@ -58,7 +56,7 @@ public class AuthorFragment extends Fragment {
     }
 
     private void initData() {
-        OkHttpTool.newInstance().start(URLConstant.topBase + URLConstant.authorJoint).callback(new IOKCallBack() {
+        OkHttpTool.newInstance().start(URLConstant.TOP_BASE + URLConstant.AUTHOR_JOINT).callback(new IOKCallBack() {
             @Override
             public void success(String result) {
                 Gson gson = new Gson();

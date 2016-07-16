@@ -22,13 +22,13 @@ public class URLConstant {
      */
 
     // TOP: baseUrl：
-    public static final String topBase = "http://m.htxq.net/servlet/SysArticleServlet?";
+    public static final String TOP_BASE = "http://m.htxq.net/servlet/SysArticleServlet?";
     // 作者 ：
-    public static final String authorJoint = "pageSize=10&action=topArticleAuthor&currentPageIndex=0";
+    public static final String AUTHOR_JOINT = "pageSize=10&action=topArticleAuthor&currentPageIndex=0";
     // 专栏 ：
-    public static final String coulmnJoint = "pageSize=10&action=topContents&currentPageIndex=0";
+    public static final String COULMN_JOINT = "pageSize=10&action=topContents&currentPageIndex=0";
     // 作者中心：
-    public static final String authorCenterBase = "http://m.htxq.net/servlet/UserCustomerServlet?action=getUserDetail&userId=";
+    public static final String AUTHOR_CENTER_BASE = "http://m.htxq.net/servlet/UserCustomerServlet?action=getUserDetail&userId=";
 
 
     // 专题下拉：
@@ -51,7 +51,7 @@ public class URLConstant {
     // 商城 ：
     public static final String MAllMall = "http://ec.htxq.net/rest/htxq/index/theme";
     // 积分 ：
-    public static final String shoppingScore = "http://m.htxq.net/rest/htxq/index/jifenList/1";
+    public static final String MALL_SCORE = "http://m.htxq.net/rest/htxq/index/jifenList/1";
     // 积分规则 ：
     public static final String shoppingScoreRule = "http://m.htxq.net/servlet/SysContentServlet?action=getDetail&id=309356e8-6bde-40f4-98aa-6d745e804b1f";
 

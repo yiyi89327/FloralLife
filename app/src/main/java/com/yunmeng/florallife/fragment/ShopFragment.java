@@ -23,6 +23,7 @@ import com.handmark.pulltorefresh.library.PullToRefreshListView;
 import com.yunmeng.florallife.R;
 import com.yunmeng.florallife.adapter.PullToRefreshAdapter;
 import com.yunmeng.florallife.bean.MallChosenItem;
+import com.yunmeng.florallife.bean.MallScore;
 import com.yunmeng.florallife.utils.URLConstant;
 
 import java.util.ArrayList;
@@ -31,7 +32,10 @@ import java.util.List;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-
+/**
+ * 商城那一整页的Fragment
+ * create by qianyuling on 2016/7/16.
+ */
 public class ShopFragment extends Fragment {
 
     Context mContext;
@@ -51,9 +55,10 @@ public class ShopFragment extends Fragment {
 
     private PullToRefreshAdapter adapter;
     private List<MallChosenItem.ResultBean> chosenList = new ArrayList<>();
+    private List<MallScore.ResultBean> scoreList = new ArrayList();
     public static int TYPE_MALL = 0;
     //dataList里的数据为精选、商城、积分的数据List,请在括号后自主添加继承的bean类
-    private List<List<? extends MallChosenItem.ResultBean>> dataList = new ArrayList<>();
+    private List<List<?>> dataList = new ArrayList<>();
 
     public static ShopFragment newInstance() {
         ShopFragment fragment = new ShopFragment();
@@ -156,14 +161,27 @@ public class ShopFragment extends Fragment {
         dataList.add(chosenList);
     }
 
-    //初始化商城页面的数据
+    //初始化商城商城页面的数据
     private void setScoresData() {
 
     }
 
-    //初始化商城精选页面的数据
+    //初始化商城积分页面的数据
     private void setShoppingData() {
+        OkHttpTool.newInstance().start(URLConstant.MALL_SCORE).callback(new IOKCallBack() {
+            @Override
+            public void success(String result) {
+                if(result ==null){
+                    return;
+                }
+                Gson gson = new Gson();
+                MallScore mallScore = gson.fromJson(result,MallScore.class);
+                scoreList.addAll(mallScore.getResult());
+                adapter.notifyDataSetChanged();
+            }
+        });
 
+        dataList.add(scoreList);
     }
 
     private void initListener() {

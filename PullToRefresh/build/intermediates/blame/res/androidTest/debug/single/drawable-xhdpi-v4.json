@@ -1,7 +1,19 @@
 [
     {
+        "merged": "D:\\AndroidDevTools\\AndroidStudioProjects\\MyApplication2\\FloralLife\\PullToRefresh\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4\\indicator_arrow.png",
+        "source": "D:\\AndroidDevTools\\AndroidStudioProjects\\MyApplication2\\FloralLife\\PullToRefresh\\build\\intermediates\\bundles\\debug\\res\\drawable-xhdpi-v4\\indicator_arrow.png"
+    },
+    {
         "merged": "D:\\other_module\\FloralLife\\PullToRefresh\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4\\default_ptr_rotate.png",
         "source": "D:\\other_module\\FloralLife\\PullToRefresh\\build\\intermediates\\bundles\\debug\\res\\drawable-xhdpi-v4\\default_ptr_rotate.png"
+    },
+    {
+        "merged": "D:\\AndroidDevTools\\AndroidStudioProjects\\MyApplication2\\FloralLife\\PullToRefresh\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4\\default_ptr_rotate.png",
+        "source": "D:\\AndroidDevTools\\AndroidStudioProjects\\MyApplication2\\FloralLife\\PullToRefresh\\build\\intermediates\\bundles\\debug\\res\\drawable-xhdpi-v4\\default_ptr_rotate.png"
+    },
+    {
+        "merged": "D:\\AndroidDevTools\\AndroidStudioProjects\\MyApplication2\\FloralLife\\PullToRefresh\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4\\default_ptr_flip.png",
+        "source": "D:\\AndroidDevTools\\AndroidStudioProjects\\MyApplication2\\FloralLife\\PullToRefresh\\build\\intermediates\\bundles\\debug\\res\\drawable-xhdpi-v4\\default_ptr_flip.png"
     },
     {
         "merged": "D:\\other_module\\FloralLife\\PullToRefresh\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable-xhdpi-v4\\default_ptr_flip.png",
