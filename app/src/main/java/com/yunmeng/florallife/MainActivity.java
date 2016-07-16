@@ -8,8 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
-import com.yunmeng.florallife.activity.MyActivity;
-import com.yunmeng.florallife.fragment.MineFragment;
+import com.yunmeng.florallife.activity.MyLoginActivity;
 import com.yunmeng.florallife.fragment.ShopFragment;
 import com.yunmeng.florallife.fragment.SimpleTitleFragment;
 
@@ -25,7 +24,6 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
 
     private SimpleTitleFragment simpleTitleFragment;
     private ShopFragment shopFragment;
-    private MineFragment mineFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,17 +61,8 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
                 }
                 break;
             case R.id.mine:
-                if (mineFragment == null) {
-                    if (islog == false) {
-                        Intent intent = new Intent(this, MyActivity.class);
-                        startActivity(intent);
-                    } else {
-                        mineFragment = MineFragment.newInstance();
-                        transaction.add(R.id.main_ll, mineFragment);
-                    }
-                } else {
-                    transaction.show(mineFragment);
-                }
+                Intent intent = new Intent(this, MyLoginActivity.class);
+                startActivity(intent);
                 break;
 
         }
@@ -87,8 +76,6 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
         if (shopFragment != null) {
             transaction.hide(shopFragment);
         }
-        if (mineFragment != null) {
-            transaction.hide(mineFragment);
-        }
     }
+
 }

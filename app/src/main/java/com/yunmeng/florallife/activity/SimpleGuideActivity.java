@@ -1,5 +1,6 @@
 package com.yunmeng.florallife.activity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -16,6 +17,7 @@ import com.yunmeng.florallife.R;
 import com.yunmeng.florallife.adapter.ZtListItemAdapter;
 import com.yunmeng.florallife.bean.UrlConfig;
 import com.yunmeng.florallife.bean.ZtListItemValue;
+import com.yunmeng.florallife.utils.Commentway;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -52,18 +54,11 @@ public class SimpleGuideActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(getApplicationContext(), DetailActivity.class);
-                Bundle bundle = new Bundle();
-                bundle.putString("img",data.get(position).getSmallIcon());
-                bundle.putString("title",data.get(position).getTitle());
-                bundle.putString("name",data.get(position).getCategory().getName());
-                bundle.putString("weburl",data.get(position).getPageUrl());
-                bundle.putString("time",data.get(position).getCreateDate());
-                bundle.putString("readnum",data.get(position).getRead()+"");
-                bundle.putString("vediourl",data.get(position).getVideoUrl());
-                bundle.putString("likenum",data.get(position).getAppoint()+"");
-                bundle.putString("commentnum",data.get(position).getFnCommentNum()+"");
+                Commentway commentway = new Commentway();
+                Bundle bundle = commentway.onclickway(data, position);
                 intent.putExtra("bundle",bundle);
                 startActivity(intent);
+
             }
         });
     }

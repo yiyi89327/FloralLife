@@ -14,14 +14,14 @@
             android:layout_width="35dp"
             android:layout_height="40dp"
             android:clickable="true"
-            android:id="@+id/btn_articles_back"
+            android:id="@+id/btn_videos_back"
             android:background="@drawable/main_detail_back"/>
         <TextView
-            android:id="@+id/tv_main_articles_title"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
             android:layout_centerInParent="true"
             android:textColor="@color/black"
+            android:text="视频"
             android:textSize="18sp"/>
     </RelativeLayout>
     <com.handmark.pulltorefresh.library.PullToRefreshListView

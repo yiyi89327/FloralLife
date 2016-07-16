@@ -140,6 +140,7 @@ public class SimpleTitleFragment extends Fragment {
                     popupWindow.setWidth(250);
                     popupWindow.setHeight(250);
                     popupWindow.setOutsideTouchable(true);
+                    popupWindow.setFocusable(true);
                     popupWindow.showAtLocation(ll, Gravity.TOP, 0, 200);
                     popupWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
                         @Override

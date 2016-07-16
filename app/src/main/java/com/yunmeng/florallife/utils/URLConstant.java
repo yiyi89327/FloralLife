@@ -55,6 +55,7 @@ public class URLConstant {
     // 积分规则 ：
     public static final String shoppingScoreRule = "http://m.htxq.net/servlet/SysContentServlet?action=getDetail&id=309356e8-6bde-40f4-98aa-6d745e804b1f";
 
-
+    //花田小憩使用协议
+    public static final String MYAGREEMENT = "http://m.htxq.net/servlet/SysContentServlet?action=getDetail&id=af50c0f4-d048-419b-a2de-47bb47fb99a5";
 
 }

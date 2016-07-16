@@ -36,7 +36,7 @@ public class UrlConfig {
     // 文章：
     public static final String URL_ZT_ARTICLE = "http://m.htxq.net/servlet/SysArticleServlet?pageSize=20&action=mainList&isVideo=false&currentPageIndex=0&cateId=";
     // 视频：
-    public static final String URL_ZT_VIDEO  = "http://m.htxq.net/servlet/SysArticleServle t? pageSize=20&action=mainList&isVideo=true &currentPag eIndex=0&cateId=";
+    public static final String URL_ZT_VIDEO  = "http://m.htxq.net/servlet/SysArticleServlet?pageSize=20&action=mainList&isVideo=true&currentPageIndex=0&cateId=";
 
 
     // 商城
@@ -47,7 +47,8 @@ public class UrlConfig {
     // itemid= 为导航栏获取的fnId
     // 除了itemid外还需要加上以下后缀
     public static final String URL_SHOP_GUIDE_LIST_END = "&pageIndex=1&pageSize=20";
-
+    //headimg
+    public static final String URL_SHOP_HEAD = "http://ec.htxq.net/rest/htxq/index/carousel";
     // 精选 ：
     public static final String URL_SHOP_CHOOSE = "http://ec.htxq.net/rest/htxq/index/jingList/1";
     // 商城 ：
