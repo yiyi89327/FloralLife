@@ -20,15 +20,17 @@ import java.util.List;
  */
 public class PullToRefreshAdapter extends BaseAdapter {
 
+    //请添加商城和积分的数据类型
     private List<? extends MallChosenItem.ResultBean> data;
     private Context context;
     private LayoutInflater inflater;
 
-
+    //请添加商城和积分的数据类型
     public List<? extends MallChosenItem.ResultBean> getData() {
         return data;
     }
 
+    //请添加商城和积分的数据类型
     public PullToRefreshAdapter(List<? extends MallChosenItem.ResultBean> data, Context context) {
         this.data = data;
         this.context = context;

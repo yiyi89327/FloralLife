@@ -51,7 +51,9 @@ public class ShopFragment extends Fragment {
 
     private PullToRefreshAdapter adapter;
     private List<MallChosenItem.ResultBean> chosenList = new ArrayList<>();
-    public static int TYPE_MALL;
+    public static int TYPE_MALL = 0;
+    //dataList里的数据为精选、商城、积分的数据List,请在括号后自主添加继承的bean类
+    private List<List<? extends MallChosenItem.ResultBean>> dataList = new ArrayList<>();
 
     public static ShopFragment newInstance() {
         ShopFragment fragment = new ShopFragment();
@@ -74,10 +76,16 @@ public class ShopFragment extends Fragment {
 
         //初始化PullToRefreshListView的头部视图
         initHeaderView();
-        //初始化商城精选页面的数据
+        //初始化商城—精选页面的数据
         setChosenData();
+        //初始化商城—商城页面的数据
+        setShoppingData();
+        //初始化商城—积分页面的数据
+        setScoresData();
+
+        //根据TYPE_MALL的值从总数据中取出当前页面的数据List，默认TYPE_MALL = 0，即加载精选页面数据
+        adapter = new PullToRefreshAdapter(dataList.get(TYPE_MALL), getContext());
         //绑定PullToRefreshListViewAdapter
-        adapter = new PullToRefreshAdapter(chosenList, getContext());
         mPullToRefreshListView.setAdapter(adapter);
 
         initListener();
@@ -118,14 +126,14 @@ public class ShopFragment extends Fragment {
 
                 break;
             case R.id.tv_mall_chosen:
-                TYPE_MALL = 1;
+                TYPE_MALL = 0;
                 break;
             case R.id.tv_mall_shopping:
-                TYPE_MALL = 2;
+                TYPE_MALL = 1;
                 break;
             case R.id.tv_mall_scores:
                 //f_linearGone.setVisibility(View.VISIBLE);
-                TYPE_MALL = 3;
+                TYPE_MALL = 2;
                 break;
         }
     }
@@ -144,6 +152,18 @@ public class ShopFragment extends Fragment {
                 adapter.notifyDataSetChanged();
             }
         });
+
+        dataList.add(chosenList);
+    }
+
+    //初始化商城页面的数据
+    private void setScoresData() {
+
+    }
+
+    //初始化商城精选页面的数据
+    private void setShoppingData() {
+
     }
 
     private void initListener() {
