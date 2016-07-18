@@ -39,6 +39,7 @@ public class AuthorActivity extends AppCompatActivity {
     private List<String> tabTitle = new ArrayList<>();
     private List<Fragment> fragmentList = new ArrayList<>();
     private ArrayList<PersonalCenter.ResultBean.ListContentBean> introList = new ArrayList<>();
+    private String userName;
 
     private ImageView ivAuthorIconBig;
     private ImageView ivAuthorBack;
@@ -155,7 +156,9 @@ public class AuthorActivity extends AppCompatActivity {
                 PersonalCenter.ResultBean resultBean = personalCenter.getResult();
                 // 获取介绍Fragment的内容，分解为可以传递的类型，以供传值
                 introList = (ArrayList<PersonalCenter.ResultBean.ListContentBean>) resultBean.getListContent();
+                userName = resultBean.getUserName();
                 handler.sendEmptyMessage(1);
+
             }
         });
     }
@@ -166,7 +169,7 @@ public class AuthorActivity extends AppCompatActivity {
     private void initFragment(){
 
         // 实例化Fragment，传递上述的值
-        fragmentList.add(AuthorColumnFragment.newInstance());
+        fragmentList.add(AuthorColumnFragment.newInstance(userName));
         fragmentList.add(AuthorIntroFragment.newInstance(introList));
         fragmentList.add(AuthorFansFragment.newInstance());
     }

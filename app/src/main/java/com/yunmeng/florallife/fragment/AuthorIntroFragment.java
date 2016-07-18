@@ -49,7 +49,6 @@ public class AuthorIntroFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_author_intro,container,false);
         lvAuthorIntro = (ListView) view.findViewById(R.id.lv_author_intro);
-//        bindAdapter();
         initData();
         return view;
     }

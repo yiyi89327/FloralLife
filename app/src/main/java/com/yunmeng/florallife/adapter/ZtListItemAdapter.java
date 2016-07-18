@@ -19,6 +19,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 /**
+ * 首页专题的List所用的bean类
  * Created by my on 2016/7/12.
  */
 public class ZtListItemAdapter extends BaseAdapter {

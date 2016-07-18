@@ -5,7 +5,7 @@
     <color name="colorAccent">#FF4081</color>
     <color name="black">#000</color>
 <!--    <color name="toolbarcolor">#DADCDE</color>-->
-    <color name="toolbarcolor">#DEDEDE</color>
+    <color name="toolbarcolor">#55DEDEDE</color>
     <color name="textGray">#999999</color>
     <color name="lightBackground">#22eeeeee</color>
     <color name="dividerColor">#cccccc</color>
