@@ -39,6 +39,7 @@ public class DetailActivity extends AppCompatActivity {
     VideoView video;
     @Bind(R.id.wb_detail)
     WebView webView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,15 +57,17 @@ public class DetailActivity extends AppCompatActivity {
 
     private void initview() {
         Bundle bundle = getIntent().getBundleExtra("bundle");
-        String vediourl = bundle.getString("vediourl");
-        if (vediourl.isEmpty()) {
-            Picasso.with(this).load(bundle.getString("img")).into(imageView);
-        }else {
-            video.setVisibility(View.VISIBLE);
-            imageView.setVisibility(View.GONE);
-            media(vediourl);
-        }
+        //  String vediourl = bundle.getString("vediourl");
+        // if (vediourl.isEmpty()) {
         webView.loadUrl(bundle.getString("weburl"));
+
+        Picasso.with(this).load(bundle.getString("img")).into(imageView);
+        //}else {
+        //    video.setVisibility(View.VISIBLE);
+        //    imageView.setVisibility(View.GONE);
+        //    media(vediourl);
+        // }
+
         title.setText(bundle.getString("title"));
         category_neme.setText(bundle.getString("name"));
         time.setText(bundle.getString("time"));
@@ -78,7 +81,8 @@ public class DetailActivity extends AppCompatActivity {
         MediaController controller = new MediaController(this);
         video.setMediaController(controller);
         video.setVideoPath(vediourl);
+        video.setFocusable(true);
         video.start();
-      //  video.requestFocus();
+        //  video.requestFocus();
     }
 }

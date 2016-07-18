@@ -61,9 +61,10 @@ public class MallScoreRecyclerViewAdapter extends RecyclerView.Adapter<MallScore
         TextView tvName;
         @Bind(R.id.tv_mall_score_require_score)
         TextView tvRequireScore;
+
         public MallScoreRecyclerViewHolder(View itemView) {
             super(itemView);
-            ButterKnife.bind(this,itemView);
+            ButterKnife.bind(this, itemView);
         }
 
     }

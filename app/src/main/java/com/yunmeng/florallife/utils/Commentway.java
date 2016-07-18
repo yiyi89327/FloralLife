@@ -25,15 +25,15 @@ public class Commentway {
 
     public Bundle onclickway(  List<ZtListItemValue.ResultBean> data,int position) {
         Bundle bundle = new Bundle();
-        bundle.putString("img", data.get(position).getSmallIcon());
-        bundle.putString("title", data.get(position).getTitle());
-        bundle.putString("name", data.get(position).getCategory().getName());
-        bundle.putString("weburl", data.get(position).getPageUrl());
-        bundle.putString("time", data.get(position).getCreateDate());
-        bundle.putString("readnum", data.get(position).getRead() + "");
-        bundle.putString("vediourl", data.get(position).getVideoUrl());
-        bundle.putString("likenum", data.get(position).getAppoint() + "");
-        bundle.putString("commentnum", data.get(position).getFnCommentNum() + "");
+        bundle.putString("img", data.get(position-1).getSmallIcon());
+        bundle.putString("title", data.get(position-1).getTitle());
+        bundle.putString("name", data.get(position-1).getCategory().getName());
+        bundle.putString("weburl", data.get(position-1).getPageUrl());
+        bundle.putString("time", data.get(position-1).getCreateDate());
+        bundle.putString("readnum", data.get(position-1).getRead() + "");
+        bundle.putString("vediourl", data.get(position-1).getVideoUrl());
+        bundle.putString("likenum", data.get(position-1).getAppoint() + "");
+        bundle.putString("commentnum", data.get(position-1).getFnCommentNum() + "");
         return bundle;
     }
 }

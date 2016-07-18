@@ -36,34 +36,33 @@
     </RelativeLayout>
 
     <ScrollView
-        android:layout_below="@+id/rl1"
-        android:layout_above="@+id/rl2"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_above="@+id/rl2"
+        android:layout_below="@+id/rl1">
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-            <RelativeLayout
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/image_detail"
                 android:layout_width="match_parent"
-                android:layout_height="200dp">
-                <ImageView
-                    android:id="@+id/image_detail"
-                    android:layout_width="match_parent"
-                    android:layout_height="200dp"
-                    android:scaleType="centerCrop" />
-                <VideoView
-                    android:visibility="invisible"
-                    android:id="@+id/vedio_detail"
-                    android:layout_width="match_parent"
-                    android:layout_height="200dp" />
-            </RelativeLayout>
+                android:layout_height="200dp"
+                android:scaleType="centerCrop" />
+
+            <VideoView
+                android:id="@+id/vedio_detail"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:visibility="gone" />
+
             <TextView
                 android:id="@+id/detail_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
+                android:layout_below="@+id/image_detail"
                 android:gravity="center"
                 android:textSize="20sp" />
 
@@ -72,20 +71,24 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
+                android:layout_below="@+id/detail_title"
                 android:gravity="center" />
 
             <ImageView
-                android:layout_marginTop="20dp"
                 android:layout_width="70dp"
                 android:layout_height="1dp"
-                android:layout_marginLeft="200dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:layout_below="@+id/detail_category_name"
                 android:src="@color/black" />
 
             <WebView
                 android:id="@+id/wb_detail"
+                android:layout_marginTop="30dp"
+                android:layout_below="@+id/detail_category_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"></WebView>
-        </LinearLayout>
+        </RelativeLayout>
     </ScrollView>
 
     <RelativeLayout
@@ -106,8 +109,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_toRightOf="@+id/clock"
-            android:gravity="center"
-            />
+            android:gravity="center" />
 
         <LinearLayout
             android:layout_width="wrap_content"

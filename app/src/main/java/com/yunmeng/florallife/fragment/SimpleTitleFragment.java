@@ -93,9 +93,9 @@ public class SimpleTitleFragment extends Fragment {
             @Override
             public void success(String result) {
                 Gson gson = new Gson();
-                ZtListItemValue ztListItemValue = gson.fromJson(result,ZtListItemValue.class);
+                ZtListItemValue ztListItemValue = gson.fromJson(result, ZtListItemValue.class);
                 ztlist = ztListItemValue.getResult();
-                adapter = new ZtListItemAdapter(ztlist,mContext);
+                adapter = new ZtListItemAdapter(ztlist, mContext);
                 listView.setAdapter(adapter);
             }
         });
@@ -104,9 +104,11 @@ public class SimpleTitleFragment extends Fragment {
     private ListView classfylv;
     private TextView carticle;
     private TextView cvideo;
-    List<GuidelistValue.ResultBean> classfyvl = new ArrayList<>();
+
     List<String> classfyName = new ArrayList<>();
     GuidelistValue guidelistValue;
+    List<GuidelistValue.ResultBean> classfyvl = new ArrayList<>();
+
     //toolbar上的所有点击事件
     private void clickway() {
 
@@ -116,22 +118,23 @@ public class SimpleTitleFragment extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(mContext, DetailActivity.class);
                 Bundle bundle = new Bundle();
-                bundle.putString("img",ztlist.get(position).getSmallIcon());
-                bundle.putString("title",ztlist.get(position).getTitle());
-                bundle.putString("name",ztlist.get(position).getCategory().getName());
-                bundle.putString("weburl",ztlist.get(position).getPageUrl());
-                bundle.putString("time",ztlist.get(position).getCreateDate());
-                bundle.putString("readnum",ztlist.get(position).getRead()+"");
-                bundle.putString("vediourl",ztlist.get(position).getVideoUrl());
-                bundle.putString("likenum",ztlist.get(position).getAppoint()+"");
-                bundle.putString("commentnum",ztlist.get(position).getFnCommentNum()+"");
-                intent.putExtra("bundle",bundle);
+                bundle.putString("img", ztlist.get(position - 1).getSmallIcon());
+                bundle.putString("title", ztlist.get(position - 1).getTitle());
+                bundle.putString("name", ztlist.get(position - 1).getCategory().getName());
+                bundle.putString("weburl", ztlist.get(position - 1).getPageUrl());
+                bundle.putString("time", ztlist.get(position - 1).getCreateDate());
+                bundle.putString("readnum", ztlist.get(position - 1).getRead() + "");
+                bundle.putString("vediourl", ztlist.get(position - 1).getVideoUrl());
+                bundle.putString("likenum", ztlist.get(position - 1).getAppoint() + "");
+                bundle.putString("commentnum", ztlist.get(position - 1).getFnCommentNum() + "");
+                intent.putExtra("bundle", bundle);
                 startActivity(intent);
             }
         });
         //toolbar中中间专题的点击事件
         selecter.setOnClickListener(new View.OnClickListener() {
             PopupWindow popupWindow;
+
             @Override
             public void onClick(View v) {
                 if (selecter.isChecked()) {
@@ -166,15 +169,17 @@ public class SimpleTitleFragment extends Fragment {
                         }
                     });
 
-                }else {
+                } else {
                     popupWindow.dismiss();
                 }
             }
         });
 
         //左上角点击事件
+
         listbtn.setOnClickListener(new View.OnClickListener() {
             PopupWindow window;
+
             @Override
             public void onClick(View v) {
                 if (listbtn.isChecked()) {
@@ -193,7 +198,6 @@ public class SimpleTitleFragment extends Fragment {
                             listbtn.setChecked(false);
                         }
                     });
-
                     //为导航栏的list设置内容
                     classfylv = (ListView) listbtnview.findViewById(R.id.classfy_list);
                     classfylv.setDivider(null);
@@ -202,12 +206,16 @@ public class SimpleTitleFragment extends Fragment {
                         @Override
                         public void success(String result) {
                             Gson gson = new Gson();
-                             guidelistValue = gson.fromJson(result,GuidelistValue.class);
+                            guidelistValue = gson.fromJson(result, GuidelistValue.class);
                             classfyvl = guidelistValue.getResult();
-                            for (int i = 0; i < classfyvl.size();i++) {
-                                    classfyName.add(classfyvl.get(i).getName());
+                            if (classfyName.isEmpty()) {
+                                for (int i = 0; i < classfyvl.size(); i++) {
+                                    {
+                                        classfyName.add(classfyvl.get(i).getName());
+                                    }
+                                }
                             }
-                            GuideSimpleAdapter adpter = new GuideSimpleAdapter(classfyName,mContext);
+                            GuideSimpleAdapter adpter = new GuideSimpleAdapter(classfyName, mContext);
                             classfylv.setAdapter(adpter);
                         }
                     });
@@ -215,13 +223,12 @@ public class SimpleTitleFragment extends Fragment {
                         @Override
                         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                             Intent intent = new Intent(mContext, SimpleGuideActivity.class);
-                            intent.putExtra("title",classfyvl.get(position).getName());
-                            intent.putExtra("id",classfyvl.get(position).getId());
+                            intent.putExtra("title", classfyvl.get(position).getName());
+                            intent.putExtra("id", classfyvl.get(position).getId());
                             startActivity(intent);
                         }
                     });
-
-                }else {
+                } else {
                     window.dismiss();
                 }
             }
@@ -240,13 +247,9 @@ public class SimpleTitleFragment extends Fragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        if (classfyName != null) {
-            classfyName.clear();
-        }
         classfyvl.clear();
-        ztlist.clear();;
+        ztlist.clear();
     }
-
 
 
 }
