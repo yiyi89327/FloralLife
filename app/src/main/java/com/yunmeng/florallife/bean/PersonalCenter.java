@@ -558,7 +558,7 @@ public class PersonalCenter {
             this.listContent = listContent;
         }
 
-        public static class ListContentBean {
+        public static class ListContentBean implements Serializable {
             private String contentFirst;
             private String contentSecond;
             private String contentThird;

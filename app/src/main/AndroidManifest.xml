@@ -46,7 +46,8 @@
         <activity
             android:name=".activity.VideoActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity android:name=".activity.ShopDetailActicity"
+        <activity
+            android:name=".activity.ShopDetailActicity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
         <activity
             android:name=".activity.AuthorActivity"

@@ -81,12 +81,12 @@ public class AuthorColumnFragment extends Fragment {
                         if (authorColumnList.get(i).getAuthor().getUserName().equals(userName)){
                             curAuthorColumnList.add(authorColumnList.get(i));
                         }
-
                     }
                 }
+                bindAdapter();
             }
         });
-        bindAdapter();
+
     }
 
 }
