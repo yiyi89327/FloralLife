@@ -27,7 +27,10 @@ import com.google.gson.Gson;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
 import com.squareup.picasso.Picasso;
 import com.yunmeng.florallife.R;
-import com.yunmeng.florallife.activity.ShopDetailActicity;
+import com.yunmeng.florallife.activity.MallIconDetailActivity;
+import com.yunmeng.florallife.activity.MallScoreDetailActivity;
+import com.yunmeng.florallife.activity.MallScoreRuleActivity;
+import com.yunmeng.florallife.activity.MallChosenDetailActivity;
 import com.yunmeng.florallife.adapter.MallScoreAdpter;
 import com.yunmeng.florallife.adapter.PullToRefreshAdapter;
 import com.yunmeng.florallife.adapter.ShopmallAdapter;
@@ -76,8 +79,8 @@ public class ShopFragment extends Fragment {
     private List<String> groupName = new ArrayList<>();
     List<ShopGuideValue.ResultBean> data = new ArrayList<>();
 
-
     private ExpandableListView guidelistView;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -140,23 +143,38 @@ public class ShopFragment extends Fragment {
                 switch (checkedId){
                     case R.id.tv_mall_chosen:
                         setShoppingData();
+                        f_linearGone.setVisibility(View.GONE);
                         break;
                     case R.id.tv_mall_shopping:
                         testview();
+                        f_linearGone.setVisibility(View.GONE);
                         break;
                     case R.id.tv_mall_scores:
                         mallScore();
+                        f_linearGone.setVisibility(View.VISIBLE);
                         break;
                 }
             }
-
-
+        });
+        headerViewHolder.headIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(),MallIconDetailActivity.class);
+                startActivity(intent);
+            }
+        });
+        f_linearGone.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(),MallScoreRuleActivity.class);
+                startActivity(intent);
+            }
         });
         //PullToRefreshListView必须先执行getRefreshableView()方法才能添加头部视图
         listView.getRefreshableView().addHeaderView(headerView);
     }
-    class HeaderViewHolder {
 
+    class HeaderViewHolder {
         @Bind(R.id.iv_mall_head_icon)
         ImageView headIcon;
         @Bind(R.id.v_headview_line)
@@ -168,21 +186,14 @@ public class ShopFragment extends Fragment {
         public HeaderViewHolder(View headerView) {
             ButterKnife.bind(this,headerView);
         }
-
     }
 
-    public void onClick(View view) {
-        switch (view.getId()){
-            case R.id.iv_mall_head_icon:
-                break;
-        }
-    }
 
     //精选的适配器及其数据
     private List<MallChosenItem.ResultBean> scoreList = new ArrayList();
     private PullToRefreshAdapter adapter;
     private void setShoppingData() {
-        OkHttpTool.newInstance().start(URLConstant.MALL_SCORE).callback(new IOKCallBack() {
+        OkHttpTool.newInstance().start(URLConstant.MALLCHOSEN).callback(new IOKCallBack() {
             @Override
             public void success(String result) {
                 if(result ==null){
@@ -201,15 +212,15 @@ public class ShopFragment extends Fragment {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(mContext, ShopDetailActicity.class);
-                intent.putExtra("title", scoreList.get(position-2).getFnName());
-                intent.putExtra("first", scoreList.get(position-2).getFnFirstDesc());
-                intent.putExtra("second", scoreList.get(position-2).getFnSecondDesc());
-                intent.putExtra("three", scoreList.get(position-2).getFnThreeDesc());
-                intent.putExtra("four", scoreList.get(position-2).getFnFourthDesc());
-                intent.putExtra("five", scoreList.get(position-2).getFnFifthDesc());
-                intent.putExtra("img", scoreList.get(position-2).getFnAttachmentSnap());
-                intent.putExtra("price", scoreList.get(position-2).getSkuList().get(0).getFnPrice()+"");
+                Intent intent = new Intent(mContext, MallChosenDetailActivity.class);
+                intent.putExtra("title", scoreList.get(position).getFnName());
+                intent.putExtra("first", scoreList.get(position).getFnFirstDesc());
+                intent.putExtra("second", scoreList.get(position).getFnSecondDesc());
+                intent.putExtra("three", scoreList.get(position).getFnThreeDesc());
+                intent.putExtra("four", scoreList.get(position).getFnFourthDesc());
+                intent.putExtra("five", scoreList.get(position).getFnFifthDesc());
+                intent.putExtra("img", scoreList.get(position).getFnAttachment());
+                intent.putExtra("price", scoreList.get(position).getSkuList().get(0).getFnPrice()+"");
                 startActivity(intent);
             }
         });
@@ -234,6 +245,7 @@ public class ShopFragment extends Fragment {
             }
         });
     }
+
     //积分list
     //积分适配器及其data
     List<MallScore.ResultBean> result1 = new ArrayList<>();
@@ -251,6 +263,22 @@ public class ShopFragment extends Fragment {
                 listView.setAdapter(malladpter);
             }
 
+        });
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent3 = new Intent(mContext,MallScoreDetailActivity.class);
+//                intent3.putExtra("title", result1.get(position-2).getFnName());
+//                intent3.putExtra("first", result1.get(position-2).getFnFirstDesc());
+//                intent3.putExtra("second", result1.get(position-2).getFnSecondDesc());
+//                intent3.putExtra("three", result1.get(position-2).getFnThreeDesc());
+//                intent3.putExtra("four", result1.get(position-2).getFnFourthDesc());
+//                intent3.putExtra("five", result1.get(position-2).getFnFifthDesc());
+//                intent3.putExtra("img", result1.get(position-2).getFnAttachment());
+//                intent3.putExtra("price", result1.get(position-2).getFnMarketPrice()+"");
+                startActivity(intent3);
+            }
         });
 
     }
