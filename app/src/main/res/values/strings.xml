@@ -7,4 +7,5 @@
         <item>视频</item>
     </string-array>
     <string name="title">专题</string>
+    <string name="search_hint">请输入搜索关键字</string>
 </resources>

@@ -3,6 +3,7 @@ package com.yunmeng.florallife.adapter;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -54,7 +55,7 @@ public class AuthorColumnRVAdapter extends RecyclerView.Adapter<AuthorColumnRVAd
     }
 
     @Override
-    public void onBindViewHolder(AuthorColumnRVViewHolder holder, int position) {
+    public void onBindViewHolder(AuthorColumnRVViewHolder holder, final int position) {
         ZtListItemValue.ResultBean authorColumnBean = authorColumnList.get(position);
 
         // 获取跳转所需的属性
@@ -74,6 +75,26 @@ public class AuthorColumnRVAdapter extends RecyclerView.Adapter<AuthorColumnRVAd
         holder.tvSubtitle.setText(authorColumnBean.getDesc());
         holder.tvCollect.setText("  " + appoint);
         holder.tvWatch.setText("  " + read);
+
+        // 设置监听
+        holder.cvItem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, DetailActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("img", authorColumnList.get(position).getSmallIcon());
+                bundle.putString("title", authorColumnList.get(position).getTitle());
+                bundle.putString("name", authorColumnList.get(position).getCategory().getName());
+                bundle.putString("weburl", authorColumnList.get(position).getPageUrl());
+                bundle.putString("time", authorColumnList.get(position).getCreateDate());
+                bundle.putString("readnum", authorColumnList.get(position).getRead() + "");
+                bundle.putString("vediourl", authorColumnList.get(position).getVideoUrl());
+                bundle.putString("likenum", authorColumnList.get(position).getAppoint() + "");
+                bundle.putString("commentnum", authorColumnList.get(position).getFnCommentNum() + "");
+                intent.putExtra("bundle", bundle);
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -82,6 +103,9 @@ public class AuthorColumnRVAdapter extends RecyclerView.Adapter<AuthorColumnRVAd
     }
 
     class AuthorColumnRVViewHolder extends RecyclerView.ViewHolder{
+
+        @Bind(R.id.cv_author_column_item)
+        CardView cvItem;
 
         @Bind(R.id.iv_author_column_item_img)
         ImageView ivImg;
@@ -99,25 +123,6 @@ public class AuthorColumnRVAdapter extends RecyclerView.Adapter<AuthorColumnRVAd
         public AuthorColumnRVViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this,itemView);
-
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(context, DetailActivity.class);
-                    Bundle bundle = new Bundle();
-                    bundle.putString("img", smallIcon);
-                    bundle.putString("title", title);
-                    bundle.putString("name", name);
-                    bundle.putString("weburl", pageUrl);
-                    bundle.putString("time", createDate);
-                    bundle.putString("readnum", read + "");
-                    bundle.putString("vediourl", videoUrl);
-                    bundle.putString("likenum", appoint + "");
-                    bundle.putString("commentnum", fnCommentNum + "");
-                    intent.putExtra("bundle", bundle);
-                    context.startActivity(intent);
-                }
-            });
         }
 
     }
