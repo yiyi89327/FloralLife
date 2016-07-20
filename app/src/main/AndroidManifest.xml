@@ -44,6 +44,9 @@
             android:name=".activity.MallIconDetailActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
+            android:name=".activity.MallScoreDetailActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
             android:name=".activity.MallScoreRuleActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity

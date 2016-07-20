@@ -1,11 +1,11 @@
 [
     {
-        "merged": "D:\\AndroidDevTools\\AndroidStudioProjects\\MyApplication2\\FloralLife\\PullToRefresh\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\indicator_bg_top.xml",
-        "source": "D:\\AndroidDevTools\\AndroidStudioProjects\\MyApplication2\\FloralLife\\PullToRefresh\\build\\intermediates\\bundles\\debug\\res\\drawable\\indicator_bg_top.xml"
-    },
-    {
         "merged": "D:\\Company_Domain\\FloralLife1\\PullToRefresh\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\indicator_bg_top.xml",
         "source": "D:\\Company_Domain\\FloralLife1\\PullToRefresh\\build\\intermediates\\bundles\\debug\\res\\drawable\\indicator_bg_top.xml"
+    },
+    {
+        "merged": "D:\\AndroidDevTools\\AndroidStudioProjects\\MyApplication2\\FloralLife\\PullToRefresh\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\indicator_bg_top.xml",
+        "source": "D:\\AndroidDevTools\\AndroidStudioProjects\\MyApplication2\\FloralLife\\PullToRefresh\\build\\intermediates\\bundles\\debug\\res\\drawable\\indicator_bg_top.xml"
     },
     {
         "merged": "F:\\LastProject\\FloralLife1\\PullToRefresh\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\indicator_bg_top.xml",
@@ -16,11 +16,11 @@
         "source": "F:\\LastProject\\FloralLife1\\PullToRefresh\\build\\intermediates\\bundles\\debug\\res\\drawable\\indicator_bg_bottom.xml"
     },
     {
-        "merged": "D:\\AndroidDevTools\\AndroidStudioProjects\\MyApplication2\\FloralLife\\PullToRefresh\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\indicator_bg_bottom.xml",
-        "source": "D:\\AndroidDevTools\\AndroidStudioProjects\\MyApplication2\\FloralLife\\PullToRefresh\\build\\intermediates\\bundles\\debug\\res\\drawable\\indicator_bg_bottom.xml"
-    },
-    {
         "merged": "D:\\Company_Domain\\FloralLife1\\PullToRefresh\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\indicator_bg_bottom.xml",
         "source": "D:\\Company_Domain\\FloralLife1\\PullToRefresh\\build\\intermediates\\bundles\\debug\\res\\drawable\\indicator_bg_bottom.xml"
+    },
+    {
+        "merged": "D:\\AndroidDevTools\\AndroidStudioProjects\\MyApplication2\\FloralLife\\PullToRefresh\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\indicator_bg_bottom.xml",
+        "source": "D:\\AndroidDevTools\\AndroidStudioProjects\\MyApplication2\\FloralLife\\PullToRefresh\\build\\intermediates\\bundles\\debug\\res\\drawable\\indicator_bg_bottom.xml"
     }
 ]

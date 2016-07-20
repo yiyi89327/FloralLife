@@ -2,6 +2,7 @@ package com.yunmeng.florallife.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
@@ -13,6 +14,7 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 import com.yunmeng.florallife.R;
+import com.yunmeng.florallife.activity.MallChosenDetailActivity;
 import com.yunmeng.florallife.bean.ShopmallValue;
 
 import java.util.List;
@@ -84,6 +86,7 @@ public class ShopmallAdapter extends BaseAdapter {
         ImageView btn;
         @Bind(R.id.shopmall_rcview)
         RecyclerView recyclerView;
+
         public ViewHolder(View view) {
             view.setTag(this);
             ButterKnife.bind(this,view);
@@ -100,11 +103,16 @@ public class ShopmallAdapter extends BaseAdapter {
         TextView price;
         @Bind(R.id.shopmall_inner_img)
         ImageView imageView;
+        @Bind(R.id.av_cardview)
+        CardView cardView;
+
+
         public InHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this,itemView);
         }
     }
+
     private class ShopmallItemAdpter extends RecyclerView.Adapter<InHolder>{
         private List<ShopmallValue.ResultBean.ChildrenListBean> childrenList;
         private String fnDesc;
@@ -120,11 +128,27 @@ public class ShopmallAdapter extends BaseAdapter {
         }
 
         @Override
-        public void onBindViewHolder(InHolder holder, int position) {
+        public void onBindViewHolder(InHolder holder, final int position) {
             holder.desc.setText(fnDesc);
             holder.name.setText(childrenList.get(position).getpGoods().getFnName());
             holder.price.setText(childrenList.get(position).getpGoods().getFnMarketPrice()+"");
             Picasso.with(context).load(childrenList.get(position).getpGoods().getFnAttachment1()).into(holder.imageView);
+            holder.cardView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent3 = new Intent(context,MallChosenDetailActivity.class);
+                    intent3.putExtra("big_title", childrenList.get(position).getpGoods().getFnName());
+                    intent3.putExtra("en_title", fnDesc);
+                    intent3.putExtra("first", childrenList.get(position).getpGoods().getFnFirstDesc());
+                    intent3.putExtra("second", childrenList.get(position).getpGoods().getFnSecondDesc());
+                    intent3.putExtra("three", childrenList.get(position).getpGoods().getFnThreeDesc());
+                    intent3.putExtra("four", childrenList.get(position).getpGoods().getFnFourthDesc());
+                    intent3.putExtra("five", childrenList.get(position).getpGoods().getFnFifthDesc());
+                    intent3.putExtra("img", childrenList.get(position).getpGoods().getFnAttachment());
+                    intent3.putExtra("price", childrenList.get(position).getpGoods().getFnMarketPrice()+"");
+                    context.startActivity(intent3);
+                }
+            });
         }
         @Override
         public int getItemCount() {

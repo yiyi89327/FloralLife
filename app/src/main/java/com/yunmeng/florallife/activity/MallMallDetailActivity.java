@@ -23,78 +23,78 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 /**
- * Created by my on 2016/7/19.
+ * Created by my on 2016/7/20.
  */
-public class MallScoreDetailActivity extends AppCompatActivity {
+public class MallMallDetailActivity extends AppCompatActivity {
 
-    @Bind(R.id.btn_score_detail_back)
+    @Bind(R.id.btn_shop_detail_back)
     ImageView back;
-    @Bind(R.id.tv_score_detail_bigtitle)
-    TextView bigTitle;
-    @Bind(R.id.btn_score_detail_share)
-    ImageView score_share;
+    @Bind(R.id.shopdetail_title)
+    TextView titles;
 
-    @Bind(R.id.iv_score_detail_pic)
-    ImageView imgs;
-    @Bind(R.id.tv_score_detail_enname)
-    TextView score_enName;
-    @Bind(R.id.tv_score_detail_name)
-    TextView score_name;
-
-    @Bind(R.id.tv_score_detail_firstDesc)
+    @Bind(R.id.shopdetail_enname)
+    TextView enName;
+    @Bind(R.id.shopdetail_name)
+    TextView name;
+    @Bind(R.id.shopdetail_fnfirstdesk)
     TextView fnFirstDesk;
 
-    @Bind(R.id.wv_score_detail_web1)
-    WebView score_web1;
-    @Bind(R.id.wv_score_detail_web2)
-    WebView score_web2;
-    @Bind(R.id.wv_score_detail_web3)
-    WebView score_web3;
-    @Bind(R.id.wv_score_detail_web4)
-    WebView score_web4;
-
-    @Bind(R.id.tv_score_detail_price)
-    TextView score_price;
+    @Bind(R.id.shop_detail_price)
+    TextView prices;
+    @Bind(R.id.shopdetail_web1)
+    WebView webView1;
+    @Bind(R.id.shopdetail_web2)
+    WebView webView2;
+    @Bind(R.id.shopdetail_web3)
+    WebView webView3;
+    @Bind(R.id.shopdetail_web4)
+    WebView webView4;
+    @Bind(R.id.btn_shop_detail_share)
+    ImageView share;
+    @Bind(R.id.shopdetail_img)
+    ImageView imgs;
 
     private Context mContext;
-    @Bind(R.id.rl_mall_score_layout)
-    RelativeLayout rl_mall_score_layout;
+    @Bind(R.id.rl_mall_chosen_layout)
+    RelativeLayout rl_mall_chosen_layout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_mall_score_detail);
+        setContentView(R.layout.activity_mall_chosen_detail);
         ButterKnife.bind(this);
         mContext = this;
 
-        String big_title = getIntent().getStringExtra("big_title");
-        String en_title = getIntent().getStringExtra("en_title");
-        String first = getIntent().getStringExtra("first");
-        String second = getIntent().getStringExtra("second");
-        String third = getIntent().getStringExtra("third");
-        String fourth = getIntent().getStringExtra("fourth");
-        String fifth = getIntent().getStringExtra("fifth");
         String img = getIntent().getStringExtra("img");
+        String title = getIntent().getStringExtra("big_title");
+        String enTitle = getIntent().getStringExtra("en_title");
+        String first = getIntent().getStringExtra("first");
         String price = getIntent().getStringExtra("price");
+        String second = getIntent().getStringExtra("second");
+        String three = getIntent().getStringExtra("three");
+        String four = getIntent().getStringExtra("four");
+        String five = getIntent().getStringExtra("five");
 
-        bigTitle.setText(big_title);
-        score_enName.setText(en_title);
-        score_name.setText(big_title);
+        titles.setText(title);
+        enName.setText(enTitle);
+        name.setText(title);
         fnFirstDesk.setText(first);
-        score_price.setText(price);
+        prices.setText(price);
         Picasso.with(this).load(img).into(imgs);
 
-        score_web1.getSettings().setDefaultTextEncodingName("UTF-8");
-        score_web1.loadData(second, "text/html; charset=UTF-8", null);
-        score_web2.getSettings().setDefaultTextEncodingName("UT-8");
-        score_web2.loadData(third, "text/html; charset=UTF-8", null);
-        score_web3.getSettings().setDefaultTextEncodingName("UTF -8");
-        score_web3.loadData(fourth, "text/html; charset=UTF-8", null);
-        score_web4.getSettings().setDefaultTextEncodingName("UTF -8");
-        score_web4.loadData(fifth, "text/html; charset=UTF-8", null);
+        webView1.getSettings().setDefaultTextEncodingName("UTF -8");
+        webView1.loadData(second, "text/html; charset=UTF-8", null);
+
+        webView2.getSettings().setDefaultTextEncodingName("UTF -8");
+        webView2.loadData(three, "text/html; charset=UTF-8", null);
+
+        webView3.getSettings().setDefaultTextEncodingName("UTF -8");
+        webView3.loadData(four, "text/html; charset=UTF-8", null);
+
+        webView4.getSettings().setDefaultTextEncodingName("UTF -8");
+        webView4.loadData(five, "text/html; charset=UTF-8", null);
 
         initListener();
-
     }
 
     private void initListener() {
@@ -106,7 +106,7 @@ public class MallScoreDetailActivity extends AppCompatActivity {
             }
         });
 
-        score_share.setOnClickListener(new View.OnClickListener() {
+        share.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 final PopupWindow popupWindow;
@@ -118,7 +118,7 @@ public class MallScoreDetailActivity extends AppCompatActivity {
                 popupWindow.setFocusable(true);
                 ColorDrawable dw = new ColorDrawable(0xb0000000);
                 popupWindow.setBackgroundDrawable(dw);
-                popupWindow.showAtLocation(rl_mall_score_layout, Gravity.NO_GRAVITY, 0,0);
+                popupWindow.showAtLocation(rl_mall_chosen_layout, Gravity.NO_GRAVITY, 0,0);
                 shareView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -130,17 +130,22 @@ public class MallScoreDetailActivity extends AppCompatActivity {
 
             }
         });
+
     }
 
     public void onClick(View view){
         switch(view.getId()){
-            case R.id.btn_score_detail_get:
+            case R.id.shopdetail_add:
+                Toast.makeText(this, "您尚未登录，请先登录", Toast.LENGTH_SHORT).show();
+                Intent intent2 = new Intent(this,MallIconDetailActivity.class);
+                startActivity(intent2);
+                break;
+            case R.id.shopdetail_buy:
                 Toast.makeText(this, "您尚未登录，请先登录", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(this,MyLoginActivity.class);
                 startActivity(intent);
                 break;
         }
     }
-
 
 }

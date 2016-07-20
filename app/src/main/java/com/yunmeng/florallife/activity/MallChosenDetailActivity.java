@@ -9,7 +9,6 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
-import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -30,6 +29,14 @@ public class MallChosenDetailActivity extends AppCompatActivity {
     ImageView back;
     @Bind(R.id.shopdetail_title)
     TextView titles;
+
+    @Bind(R.id.shopdetail_enname)
+    TextView enName;
+    @Bind(R.id.shopdetail_name)
+    TextView name;
+    @Bind(R.id.shopdetail_fnfirstdesk)
+    TextView fnFirstDesk;
+
     @Bind(R.id.shopdetail_add)
     Button add;
     @Bind(R.id.shopdetail_buy)
@@ -62,6 +69,7 @@ public class MallChosenDetailActivity extends AppCompatActivity {
 
         String img = getIntent().getStringExtra("img");
         String title = getIntent().getStringExtra("title");
+        String enTitle = getIntent().getStringExtra("en_title");
         String first = getIntent().getStringExtra("first");
         String price = getIntent().getStringExtra("price");
         String second = getIntent().getStringExtra("second");
@@ -70,18 +78,27 @@ public class MallChosenDetailActivity extends AppCompatActivity {
         String five = getIntent().getStringExtra("five");
 
         titles.setText(title);
-        Picasso.with(this).load(img).into(imgs);
-        webView1.getSettings().setDefaultTextEncodingName("UTF -8");
-        webView2.getSettings().setDefaultTextEncodingName("UTF -8");
-        webView2.loadData(second, "text/html; charset=UTF-8", null);
-        webView3.getSettings().setDefaultTextEncodingName("UTF -8");
-        webView2.getSettings().getUseWideViewPort();
-        webView2.getSettings().setSupportZoom(true);
-        webView2.getSettings().setLayoutAlgorithm(WebSettings.LayoutAlgorithm.SINGLE_COLUMN);
-        webView3.loadData(three, "text/html; charset=UTF-8", null);
-        webView4.getSettings().setDefaultTextEncodingName("UTF -8");
-        webView4.loadData(four, "text/html; charset=UTF-8", null);
+        enName.setText(enTitle);
+        name.setText(title);
+        fnFirstDesk.setText(first);
         prices.setText(price);
+        Picasso.with(this).load(img).into(imgs);
+
+        webView1.getSettings().setDefaultTextEncodingName("UTF -8");
+        webView1.loadData(second, "text/html; charset=UTF-8", null);
+
+        webView2.getSettings().setDefaultTextEncodingName("UTF -8");
+        webView2.loadData(three, "text/html; charset=UTF-8", null);
+        //任意比例缩放
+//        webView2.getSettings().getUseWideViewPort();
+//        webView2.getSettings().setSupportZoom(true);
+//        webView2.getSettings().setLayoutAlgorithm(WebSettings.LayoutAlgorithm.SINGLE_COLUMN);
+
+        webView3.getSettings().setDefaultTextEncodingName("UTF -8");
+        webView3.loadData(four, "text/html; charset=UTF-8", null);
+
+        webView4.getSettings().setDefaultTextEncodingName("UTF -8");
+        webView4.loadData(five, "text/html; charset=UTF-8", null);
 
         initListener();
     }
