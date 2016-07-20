@@ -11,4 +11,5 @@
     <color name="white">#ffffff</color>
     <color name="whiteyellow">#efef00</color>
     <color name="searchBackground">#eeeeee</color>
+    <color name="alphaBlack">#33000000</color>
 </resources>

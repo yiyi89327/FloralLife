@@ -2,9 +2,11 @@ package com.yunmeng.florallife.fragment;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -28,8 +30,12 @@ import com.handmark.pulltorefresh.library.PullToRefreshListView;
 import com.squareup.picasso.Picasso;
 import com.yunmeng.florallife.R;
 import com.yunmeng.florallife.activity.MallChosenDetailActivity;
+import com.yunmeng.florallife.activity.MallAssortUpActivity;
+import com.yunmeng.florallife.activity.ShopDetailActicity;
 import com.yunmeng.florallife.activity.MallIconDetailActivity;
+import com.yunmeng.florallife.activity.MallScoreDetailActivity;
 import com.yunmeng.florallife.activity.MallScoreRuleActivity;
+import com.yunmeng.florallife.activity.MallChosenDetailActivity;
 import com.yunmeng.florallife.adapter.MallScoreAdpter;
 import com.yunmeng.florallife.adapter.PullToRefreshAdapter;
 import com.yunmeng.florallife.adapter.ShopmallAdapter;
@@ -49,6 +55,8 @@ import butterknife.ButterKnife;
 
 
 public class ShopFragment extends Fragment {
+
+    private LinearLayout.LayoutParams lp;         // 设置View使用的布局参数
 
     public static ShopFragment newInstance() {
         ShopFragment fragment = new ShopFragment();
@@ -123,10 +131,25 @@ public class ShopFragment extends Fragment {
     private void initHeaderView() {
         HeaderViewHolder  headerViewHolder = null;
         headerView = LayoutInflater.from(getActivity()).inflate(R.layout.item_mall_headview,null);
+
         headerViewHolder = new HeaderViewHolder(headerView);
         f_linearGone = headerViewHolder.linearGone;
 
         final HeaderViewHolder finalHeaderViewHolder = headerViewHolder;
+
+        // 获取indicator并设置初始margin
+        final View indicator = headerView.findViewById(R.id.v_headview_line);
+        View rg = headerView.findViewById(R.id.ll_mall_head_btngroup);
+        lp = new LinearLayout.LayoutParams(80,2);
+        ////////////////////////////////////////////////////////////////////
+        /////////////////////////这里的初始margin设置是失败的/////////////////
+        ////////////////////////////////////////////////////////////////////
+        lp.setMargins(rg.getWidth()/6-40,0,0,0);
+
+
+        indicator.setLayoutParams(lp);
+        indicator.setBackgroundColor(Color.BLACK);
+
         OkHttpTool.newInstance().start(UrlConfig.URL_SHOP_HEAD).callback(new IOKCallBack() {
             @Override
             public void success(String result) {
@@ -134,6 +157,7 @@ public class ShopFragment extends Fragment {
                 HeadImgValue headImgValue = gson.fromJson(result,HeadImgValue.class);
                 List<HeadImgValue.ResultBean> result2 = headImgValue.result;
                 Picasso.with(mContext).load(result2.get(0).getFnImageUrl()).into(finalHeaderViewHolder.headIcon);
+                indicator.setLayoutParams(lp);
             }
         });
         headerViewHolder.radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -143,14 +167,21 @@ public class ShopFragment extends Fragment {
                     case R.id.tv_mall_chosen:
                         setShoppingData();
                         f_linearGone.setVisibility(View.GONE);
+                        // 设置indicator
+                        lp.setMargins(group.getWidth()/6-40,0,0,0);
+                        indicator.setLayoutParams(lp);
                         break;
                     case R.id.tv_mall_shopping:
                         testview();
                         f_linearGone.setVisibility(View.GONE);
+                        lp.setMargins(group.getWidth()/2-40,0,0,0);
+                        indicator.setLayoutParams(lp);
                         break;
                     case R.id.tv_mall_scores:
                         mallScore();
                         f_linearGone.setVisibility(View.VISIBLE);
+                        lp.setMargins(group.getWidth()/6*5-40,0,0,0);
+                        indicator.setLayoutParams(lp);
                         break;
                 }
             }
@@ -174,6 +205,7 @@ public class ShopFragment extends Fragment {
     }
 
     class HeaderViewHolder {
+
         @Bind(R.id.iv_mall_head_icon)
         ImageView headIcon;
         @Bind(R.id.v_headview_line)
@@ -264,9 +296,7 @@ public class ShopFragment extends Fragment {
             }
 
         });
-
     }
-
 
     private void expandeview() {
         OkHttpTool.newInstance().start(UrlConfig.URL_SHOP_GUIDE).callback(new IOKCallBack() {
@@ -342,7 +372,7 @@ public class ShopFragment extends Fragment {
         }
 
         @Override
-        public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
+        public View getChildView(final int groupPosition, final int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
             ChildViewHolder childViewHolder = null;
             if (convertView == null) {
                 convertView = LayoutInflater.from(mContext).inflate(R.layout.expandelistview_inner_shop_guide, null);
@@ -351,6 +381,18 @@ public class ShopFragment extends Fragment {
                 childViewHolder = (ChildViewHolder) convertView.getTag();
             }
             childViewHolder.textView.setText(data.get(groupPosition).getChildrenList().get(childPosition).getFnName());
+            // 点击自条目的跳转（111）
+            childViewHolder.textView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(getContext(), MallAssortUpActivity.class);
+                    Bundle bundle = new Bundle();
+                    bundle.putString("title","分组列表");
+                    bundle.putString("fnId",data.get(groupPosition).getChildrenList().get(childPosition).getFnId());
+                    intent.putExtra("bundle",bundle);
+                    getContext().startActivity(intent);
+                }
+            });
             return convertView;
         }
 

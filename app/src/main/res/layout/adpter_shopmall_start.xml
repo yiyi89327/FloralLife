@@ -4,6 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
     <RelativeLayout
+        android:id="@+id/rl_mall_mall_theme"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:padding="5dp">

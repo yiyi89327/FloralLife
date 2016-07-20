@@ -1,5 +1,6 @@
 package com.yunmeng.florallife.bean;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -36,7 +37,7 @@ public class ShopmallValue {
 
     public List<ResultBean> result;
 
-    public static class ResultBean {
+    public static class ResultBean implements Serializable {
         public String fnId;
         public String fnName;
         public Object fnCreateDate;
@@ -120,7 +121,7 @@ public class ShopmallValue {
 
         public List<ChildrenListBean> childrenList;
 
-        public static class ChildrenListBean {
+        public static class ChildrenListBean implements Serializable {
             public String fnId;
             public String fnThemeId;
             public String fnGoodsId;
@@ -185,7 +186,7 @@ public class ShopmallValue {
                 this.pGoods = pGoods;
             }
 
-            public static class PGoodsBean {
+            public static class PGoodsBean implements Serializable {
                 public String fnId;
                 public String fnName;
                 public String fnGoodsCode;
@@ -765,7 +766,7 @@ public class ShopmallValue {
 
                 public List<SpecListBean> specList;
 
-                public static class SkuListBean {
+                public static class SkuListBean implements Serializable {
                     public String fnId;
                     public String fnSkuName;
                     public String fnGoodsId;
@@ -1128,7 +1129,7 @@ public class ShopmallValue {
                     }
                 }
 
-                public static class SpecListBean {
+                public static class SpecListBean implements Serializable {
                     public String fnId;
                     public String fnSpecName;
                     public String fnGoodsId;
@@ -1203,7 +1204,7 @@ public class ShopmallValue {
 
                     public SkuBean sku;
 
-                    public static class SkuBean {
+                    public static class SkuBean implements Serializable {
                         public String fnId;
                         public String fnSkuName;
                         public String fnGoodsId;

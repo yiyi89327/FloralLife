@@ -11,7 +11,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.PopupWindow;
+import android.widget.TextView;
 
 import com.yunmeng.florallife.R;
 import com.yunmeng.florallife.adapter.MyViewPagerAdapter;
@@ -62,14 +64,34 @@ public class TopActivity extends AppCompatActivity {
             PopupWindow popupWindow;
             @Override
             public void onClick(View v) {
-                View popupView = LayoutInflater.from(TopActivity.this).inflate(
+                final View popupView = LayoutInflater.from(TopActivity.this).inflate(
                         R.layout.popupwindow_top_search,null);
+                LinearLayout wholeView = (LinearLayout) popupView.
+                        findViewById(R.id.ll_main_top_search_parent);
+                TextView tvSearchCancel = (TextView) popupView.
+                        findViewById(R.id.tv_main_top_search_cancel);
                 popupWindow = new PopupWindow(popupView);
                 popupWindow.setWidth(ViewGroup.LayoutParams.MATCH_PARENT);
-                popupWindow.setHeight(rlTopbar.getMeasuredHeight());
+                popupWindow.setHeight(ViewGroup.LayoutParams.MATCH_PARENT);
                 popupWindow.setOutsideTouchable(true);
-                popupWindow.setFocusable(false);
+                popupWindow.setFocusable(true);
                 popupWindow.showAtLocation(llTopParent, Gravity.NO_GRAVITY,0,0);
+                wholeView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if (popupWindow.isShowing()){
+                            popupWindow.dismiss();
+                        }
+                    }
+                });
+                tvSearchCancel.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if (popupWindow.isShowing()){
+                            popupWindow.dismiss();
+                        }
+                    }
+                });
             }
         });
     }

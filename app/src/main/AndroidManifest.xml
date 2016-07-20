@@ -56,10 +56,19 @@
             android:name=".activity.VideoActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
+            android:name=".activity.ShopDetailActicity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".activity.AuthorActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".activity.MallAssortActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
             android:name=".activity.MallChosenDetailActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
         <activity
-            android:name=".activity.AuthorActivity"
+            android:name=".activity.MallAssortUpActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
     </application>
 

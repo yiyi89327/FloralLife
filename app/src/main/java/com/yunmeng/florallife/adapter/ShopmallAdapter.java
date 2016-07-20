@@ -2,6 +2,7 @@ package com.yunmeng.florallife.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
@@ -10,13 +11,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 import com.yunmeng.florallife.R;
 import com.yunmeng.florallife.activity.MallChosenDetailActivity;
+import com.yunmeng.florallife.activity.MallAssortActivity;
 import com.yunmeng.florallife.bean.ShopmallValue;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.Bind;
@@ -54,7 +58,7 @@ public class ShopmallAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
         ViewHolder viewHolder = null;
         if (convertView == null){
             convertView = LayoutInflater.from(context).inflate(R.layout.adpter_shopmall_start,null);
@@ -64,10 +68,17 @@ public class ShopmallAdapter extends BaseAdapter {
         }
         viewHolder.desc.setText(data.get(position).getFnDesc());
         viewHolder.name.setText(data.get(position).getFnName());
-        viewHolder.btn.setOnClickListener(new View.OnClickListener() {
+        // 对分类的条目进行监听（111）
+        viewHolder.rlTheme.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent();
+                Intent intent = new Intent(context,MallAssortActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("title","主题列表");
+                bundle.putSerializable("goodsList",
+                        (ArrayList<ShopmallValue.ResultBean.ChildrenListBean>)
+                        data.get(position).getChildrenList());
+                intent.putExtra("bundle",bundle);
                 context.startActivity(intent);
             }
         });
@@ -78,6 +89,8 @@ public class ShopmallAdapter extends BaseAdapter {
     }
 
     class ViewHolder{
+        @Bind(R.id.rl_mall_mall_theme)
+        RelativeLayout rlTheme;
         @Bind(R.id.shopmall_desc)
         TextView desc;
         @Bind(R.id.shopmall_name)
