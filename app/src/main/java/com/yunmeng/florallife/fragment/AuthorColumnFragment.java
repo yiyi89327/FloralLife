@@ -73,16 +73,6 @@ public class AuthorColumnFragment extends Fragment {
                 final ZtListItemValue authorColumnBean = gson.fromJson(result, ZtListItemValue.class);
                 // 获取首页显示的所有的专栏列表
                 authorColumnList.addAll(authorColumnBean.getResult());
-//                String userName = getArguments().getString("userName");
-//                //列表中作者等同于当前页面作者的专栏，添加到当前专栏列表中
-//                if (null == curAuthorColumnList){
-//                    curAuthorColumnList = new ArrayList<>();
-//                    for (int i = 0; i < authorColumnList.size(); i++) {
-//                        if (authorColumnList.get(i).getAuthor().getUserName().equals(userName)){
-//                            curAuthorColumnList.add(authorColumnList.get(i));
-//                        }
-//                    }
-//                }
                 OkHttpTool.newInstance().start(UrlConfig.URL_ZT_VIDEO).callback(new IOKCallBack() {
                     @Override
                     public void success(String result) {
@@ -102,7 +92,6 @@ public class AuthorColumnFragment extends Fragment {
                         bindAdapter();
                     }
                 });
-//                bindAdapter();
             }
         });
 
