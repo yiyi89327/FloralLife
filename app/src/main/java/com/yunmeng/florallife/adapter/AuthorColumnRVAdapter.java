@@ -56,7 +56,7 @@ public class AuthorColumnRVAdapter extends RecyclerView.Adapter<AuthorColumnRVAd
 
     @Override
     public void onBindViewHolder(AuthorColumnRVViewHolder holder, final int position) {
-        ZtListItemValue.ResultBean authorColumnBean = authorColumnList.get(position);
+        final ZtListItemValue.ResultBean authorColumnBean = authorColumnList.get(position);
 
         // 获取跳转所需的属性
         smallIcon = authorColumnBean.getSmallIcon();
@@ -88,6 +88,7 @@ public class AuthorColumnRVAdapter extends RecyclerView.Adapter<AuthorColumnRVAd
                 bundle.putString("weburl", authorColumnList.get(position).getPageUrl());
                 bundle.putString("time", authorColumnList.get(position).getCreateDate());
                 bundle.putString("readnum", authorColumnList.get(position).getRead() + "");
+                bundle.putBoolean("video", authorColumnList.get(position).isVideo());
                 bundle.putString("vediourl", authorColumnList.get(position).getVideoUrl());
                 bundle.putString("likenum", authorColumnList.get(position).getAppoint() + "");
                 bundle.putString("commentnum", authorColumnList.get(position).getFnCommentNum() + "");

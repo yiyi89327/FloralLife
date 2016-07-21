@@ -86,6 +86,7 @@ public class ColumnFragment extends Fragment {
                 bundle.putString("img",columnList.get(position).getSmallIcon());
                 bundle.putString("title",columnList.get(position).getTitle());
                 bundle.putString("name","家居庭院");
+                bundle.putBoolean("video", columnList.get(position).isVideo());
                 bundle.putString("vediourl",columnList.get(position).getVideoUrl());
                 bundle.putString("weburl",columnList.get(position).getPageUrl());
                 bundle.putString("time",columnList.get(position).getCreateDate());

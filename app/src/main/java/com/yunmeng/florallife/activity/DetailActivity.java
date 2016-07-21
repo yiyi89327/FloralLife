@@ -2,6 +2,7 @@ package com.yunmeng.florallife.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.webkit.WebView;
 import android.widget.ImageView;
@@ -14,6 +15,9 @@ import com.yunmeng.florallife.R;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import fm.jiecao.jcvideoplayer_lib.JCFullScreenActivity;
+import fm.jiecao.jcvideoplayer_lib.JCVideoPlayer;
+import fm.jiecao.jcvideoplayer_lib.JCVideoPlayerStandard;
 
 public class DetailActivity extends AppCompatActivity {
 
@@ -35,8 +39,8 @@ public class DetailActivity extends AppCompatActivity {
     TextView likenum;
     @Bind(R.id.detail_speak_num)
     TextView speaknum;
-    @Bind(R.id.vedio_detail)
-    VideoView video;
+    @Bind(R.id.video_detail)
+    JCVideoPlayerStandard video;
     @Bind(R.id.wb_detail)
     WebView webView;
 
@@ -52,21 +56,32 @@ public class DetailActivity extends AppCompatActivity {
                 finish();
             }
         });
-
     }
 
     private void initview() {
         Bundle bundle = getIntent().getBundleExtra("bundle");
-        //  String vediourl = bundle.getString("vediourl");
-        // if (vediourl.isEmpty()) {
+        String vediourl = bundle.getString("vediourl");
+        boolean hasVideo = bundle.getBoolean("video");
+
+        if (hasVideo){
+            imageView.setVisibility(View.GONE);
+            video.setVisibility(View.VISIBLE);
+            JCVideoPlayerStandard jcVideoPlayerStandard = (JCVideoPlayerStandard) findViewById(R.id.video_detail);
+            // 设置视频的地址和标题
+            jcVideoPlayerStandard.setUp(vediourl, bundle.getString("title"));
+            // 如果要进入就全屏播放视频，则使用下面这句话
+//            JCFullScreenActivity.startActivity(this, vediourl, JCVideoPlayerStandard.class, bundle.getString("title"));
+            // 设置缩略图
+            Picasso.with(this).load(bundle.getString("img")).into(jcVideoPlayerStandard.thumbImageView);
+
+        } else {
+            imageView.setVisibility(View.VISIBLE);
+            video.setVisibility(View.GONE);
+        }
+
         webView.loadUrl(bundle.getString("weburl"));
 
         Picasso.with(this).load(bundle.getString("img")).into(imageView);
-        //}else {
-        //    video.setVisibility(View.VISIBLE);
-        //    imageView.setVisibility(View.GONE);
-        //    media(vediourl);
-        // }
 
         title.setText(bundle.getString("title"));
         category_neme.setText(bundle.getString("name"));
@@ -74,15 +89,13 @@ public class DetailActivity extends AppCompatActivity {
         readnum.setText(bundle.getString("readnum"));
         likenum.setText(bundle.getString("likenum"));
         speaknum.setText(bundle.getString("commentnum"));
-
     }
 
-    private void media(String vediourl) {
-        MediaController controller = new MediaController(this);
-        video.setMediaController(controller);
-        video.setVideoPath(vediourl);
-        video.setFocusable(true);
-        video.start();
-        //  video.requestFocus();
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        JCVideoPlayer.releaseAllVideos();
     }
+
 }

@@ -31,6 +31,7 @@ public class Commentway {
         bundle.putString("weburl", data.get(position-1).getPageUrl());
         bundle.putString("time", data.get(position-1).getCreateDate());
         bundle.putString("readnum", data.get(position-1).getRead() + "");
+        bundle.putBoolean("video", data.get(position-1).isVideo());
         bundle.putString("vediourl", data.get(position-1).getVideoUrl());
         bundle.putString("likenum", data.get(position-1).getAppoint() + "");
         bundle.putString("commentnum", data.get(position-1).getFnCommentNum() + "");

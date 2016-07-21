@@ -63,6 +63,12 @@ public class ZtListItemAdapter extends BaseAdapter {
             viewHolder = (ViewHolder) convertView.getTag();
         }
         ZtListItemValue.ResultBean item = data.get(position);
+        // 如果有视频，则在缩略图处显示视屏播放按钮
+        if (item.isVideo()){
+            viewHolder.iv_zt_icon_playbtn.setVisibility(View.VISIBLE);
+        } else {
+            viewHolder.iv_zt_icon_playbtn.setVisibility(View.GONE);
+        }
         Picasso.with(context).load(item.getSmallIcon()).into(viewHolder.iv_zt_icon);
         Picasso.with(context).load(item.getAuthor().getHeadImg()).into(viewHolder.cv_zt_author_img);
         viewHolder.tv_zt_author_name.setText(item.getAuthor().getUserName());
@@ -91,6 +97,8 @@ public class ZtListItemAdapter extends BaseAdapter {
         //"fnCommentNum"
         @Bind(R.id.iv_zt_icon)
         ImageView iv_zt_icon;
+        @Bind(R.id.iv_zt_icon_playbtn)
+        ImageView iv_zt_icon_playbtn;
         @Bind(R.id.cv_zt_author_img)
         ImageView cv_zt_author_img;
 

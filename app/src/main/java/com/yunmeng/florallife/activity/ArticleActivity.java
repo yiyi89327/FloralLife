@@ -66,4 +66,5 @@ public class ArticleActivity extends AppCompatActivity {
             }
         });
     }
+
 }

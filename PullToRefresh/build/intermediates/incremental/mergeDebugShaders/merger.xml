@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="D:\Company_Domain\FloralLife1\PullToRefresh\src\main\shaders"/></dataSet><dataSet config="debug"><source path="D:\Company_Domain\FloralLife1\PullToRefresh\src\debug\shaders"/></dataSet></merger>
+<merger version="3"><dataSet config="main"><source path="D:\AndroidDevTools\AndroidStudioProjects\MyApplication2\FloralLife\PullToRefresh\src\main\shaders"/></dataSet><dataSet config="debug"><source path="D:\AndroidDevTools\AndroidStudioProjects\MyApplication2\FloralLife\PullToRefresh\src\debug\shaders"/></dataSet></merger>

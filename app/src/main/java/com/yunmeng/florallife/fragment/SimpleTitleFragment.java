@@ -5,14 +5,12 @@ import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -36,7 +34,6 @@ import com.yunmeng.florallife.bean.GuidelistValue;
 import com.yunmeng.florallife.bean.UrlConfig;
 import com.yunmeng.florallife.bean.ZtListItemValue;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -125,6 +122,10 @@ public class SimpleTitleFragment extends Fragment {
                 bundle.putString("weburl", ztlist.get(position - 1).getPageUrl());
                 bundle.putString("time", ztlist.get(position - 1).getCreateDate());
                 bundle.putString("readnum", ztlist.get(position - 1).getRead() + "");
+                ////////////////////////////////////////////////////////////////////////
+                ////////////  这里之前传值不完全，所有相关页面都已经修改！！    ////////////
+                ///////////////////////////////////////////////////////////////////////
+                bundle.putBoolean("video", ztlist.get(position - 1).isVideo());
                 bundle.putString("vediourl", ztlist.get(position - 1).getVideoUrl());
                 bundle.putString("likenum", ztlist.get(position - 1).getAppoint() + "");
                 bundle.putString("commentnum", ztlist.get(position - 1).getFnCommentNum() + "");

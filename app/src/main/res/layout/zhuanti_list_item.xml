@@ -7,12 +7,22 @@
     android:paddingRight="10dp"
     android:paddingTop="2dp">
 
-    <ImageView
-        android:id="@+id/iv_zt_icon"
+    <FrameLayout
+        android:id="@+id/fl_zt_icon"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:scaleType="centerCrop"
-         />
+        android:layout_height="200dp">
+        <ImageView
+            android:id="@+id/iv_zt_icon"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"/>
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/iv_zt_icon_playbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/main_detail_play" />
+    </FrameLayout>
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/cv_zt_author_img"
@@ -28,7 +38,7 @@
         android:id="@+id/ll_zt_author"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/iv_zt_icon"
+        android:layout_below="@+id/fl_zt_icon"
         android:orientation="vertical">
 
         <TextView
