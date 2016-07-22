@@ -1,11 +1,11 @@
 package com.yunmeng.florallife.fragment;
 
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.support.v4.app.Fragment;
+import android.content.Context;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -21,6 +21,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.RadioGroup;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.androidxx.yangjw.httplibrary.IOKCallBack;
@@ -29,12 +30,7 @@ import com.google.gson.Gson;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
 import com.squareup.picasso.Picasso;
 import com.yunmeng.florallife.R;
-import com.yunmeng.florallife.activity.MallChosenDetailActivity;
 import com.yunmeng.florallife.activity.MallAssortUpActivity;
-import com.yunmeng.florallife.activity.ShopDetailActicity;
-import com.yunmeng.florallife.activity.MallIconDetailActivity;
-import com.yunmeng.florallife.activity.MallScoreDetailActivity;
-import com.yunmeng.florallife.activity.MallScoreRuleActivity;
 import com.yunmeng.florallife.activity.MallChosenDetailActivity;
 import com.yunmeng.florallife.adapter.MallScoreAdpter;
 import com.yunmeng.florallife.adapter.PullToRefreshAdapter;
@@ -79,6 +75,8 @@ public class ShopFragment extends Fragment {
     ImageView shopsc;
     @Bind(R.id.shop_ll)
     LinearLayout ll;
+    @Bind(R.id.shop_toolbar_rl)
+    RelativeLayout rl;
     @Bind(R.id.shop_pull_lv)
     PullToRefreshListView listView;
 
@@ -86,8 +84,8 @@ public class ShopFragment extends Fragment {
     private List<String> groupName = new ArrayList<>();
     List<ShopGuideValue.ResultBean> data = new ArrayList<>();
 
-    private ExpandableListView guidelistView;
 
+    private ExpandableListView guidelistView;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -102,13 +100,13 @@ public class ShopFragment extends Fragment {
                     View shopckview = LayoutInflater.from(mContext).inflate(R.layout.popupwindow_shop_list, null);
                     popupWindow = new PopupWindow(shopckview);
                     popupWindow.setWidth(WindowManager.LayoutParams.MATCH_PARENT);
-                    popupWindow.setHeight(WindowManager.LayoutParams.WRAP_CONTENT);
+                    popupWindow.setHeight(WindowManager.LayoutParams.MATCH_PARENT);
                     popupWindow.setOutsideTouchable(true);
                     popupWindow.setFocusable(true);
-                    ColorDrawable dw = new ColorDrawable(0xb00CC0BB);
+                    ColorDrawable dw = new ColorDrawable(0xebcccccc);
                     popupWindow.setBackgroundDrawable(dw);
 //                    window.setAnimationStyle(R.style.popupwindow_anim_style);
-                    popupWindow.showAtLocation(ll, Gravity.TOP, 0,200);
+                    popupWindow.showAsDropDown(rl);
                     popupWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
                         @Override
                         public void onDismiss() {
@@ -185,25 +183,12 @@ public class ShopFragment extends Fragment {
                         break;
                 }
             }
-        });
-        headerViewHolder.headIcon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getContext(),MallIconDetailActivity.class);
-                startActivity(intent);
-            }
-        });
-        f_linearGone.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getContext(),MallScoreRuleActivity.class);
-                startActivity(intent);
-            }
+
+
         });
         //PullToRefreshListView必须先执行getRefreshableView()方法才能添加头部视图
         listView.getRefreshableView().addHeaderView(headerView);
     }
-
     class HeaderViewHolder {
 
         @Bind(R.id.iv_mall_head_icon)
@@ -217,8 +202,15 @@ public class ShopFragment extends Fragment {
         public HeaderViewHolder(View headerView) {
             ButterKnife.bind(this,headerView);
         }
+
     }
 
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.iv_mall_head_icon:
+                break;
+        }
+    }
 
     //精选的适配器及其数据
     private List<MallChosenItem.ResultBean> scoreList = new ArrayList();
@@ -277,7 +269,6 @@ public class ShopFragment extends Fragment {
             }
         });
     }
-
     //积分list
     //积分适配器及其data
     List<MallScore.ResultBean> result1 = new ArrayList<>();
@@ -296,6 +287,7 @@ public class ShopFragment extends Fragment {
             }
 
         });
+
     }
 
     private void expandeview() {
@@ -421,6 +413,7 @@ public class ShopFragment extends Fragment {
             ButterKnife.bind(this, view);
         }
     }
+
 
 
 

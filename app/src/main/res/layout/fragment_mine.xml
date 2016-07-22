@@ -1,12 +1,161 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.yunmeng.florallife.fragment.MineFragment">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:background="@color/toolbarcolor"
+        android:padding="5dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_centerInParent="true"
+            android:text="个人中心"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+
+        <ImageView
+            android:id="@+id/btn_person_setting"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/person_setting_menu"
+            android:clickable="true" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/textGray"></LinearLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        android:background="@color/toolbarcolor"
+        android:padding="10dp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/person_img"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:clickable="true"
+            android:src="@drawable/personal_default_head" />
+
+        <TextView
+            android:id="@+id/person_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/person_img"
+            android:text="匿名用户"
+            android:textColor="@color/black" />
+
+        <ImageView
+            android:id="@+id/person_alarm"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="10dp"
+            android:clickable="true"
+            android:background="@drawable/kuang"
+            android:src="@drawable/community_menu_right_without_tag" />
+
+        <ImageView
+            android:id="@+id/person_shopcar"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="10dp"
+            android:clickable="true"
+            android:layout_toLeftOf="@+id/person_alarm"
+            android:background="@drawable/kuang"
+            android:src="@drawable/car" />
+
+        <TextView
+            android:id="@+id/jifenzhi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/person_img"
+            android:layout_marginTop="20dp"
+            android:text="积分值   |   "
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/jingyanzhi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:text="经验值   |   "
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/person_jifen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/person_img"
+            android:layout_marginTop="20dp"
+            android:layout_toRightOf="@id/jifenzhi"
+            android:text="以获得117个积分"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/dengji"
+            android:layout_width="50dp"
+            android:layout_height="15dp"
+            android:layout_alignParentBottom="true"
+            android:layout_toRightOf="@id/jifenzhi"
+            android:background="@drawable/jifen_shape"
+            android:gravity="center"
+            android:text="LV1"
+            android:textColor="@color/white" />
+
+        <LinearLayout
+            android:id="@+id/person_seekbar"
+            android:layout_width="60dp"
+            android:layout_height="15dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="3dp"
+            android:layout_toRightOf="@id/dengji"
+            android:background="@drawable/jindu_shape"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/seekbar_date"
+                android:layout_width="15dp"
+                android:orientation="horizontal"
+                android:layout_height="match_parent"
+                android:background="@drawable/jifeninner_shape"></LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/person_jinyanzhi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_alignParentBottom="true"
+            android:layout_toRightOf="@id/person_seekbar"
+            android:text="11"
+            android:textColor="@color/black" />
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/dividerColor"/>
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="3" />
-
-</FrameLayout>
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:text="订阅"
+        android:background="@color/toolbarcolor"
+        android:textSize="17dp" />
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/person_ryview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+</LinearLayout>

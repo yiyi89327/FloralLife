@@ -21,8 +21,10 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:layout_margin="10dp"
-            android:background="@drawable/edit_input_bg"
+            android:background="@drawable/kuang"
             android:hint="@string/search_hint"
+            android:inputType="text"
+            android:imeOptions="actionDone"
             android:drawableLeft="@drawable/main_top_search"
             android:gravity="center_vertical"/>
 

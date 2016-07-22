@@ -1,6 +1,5 @@
 package com.yunmeng.florallife.activity;
 
-import android.graphics.drawable.BitmapDrawable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
@@ -77,7 +76,6 @@ public class TopActivity extends AppCompatActivity {
                 popupWindow.setOutsideTouchable(true);
                 popupWindow.setFocusable(true);
                 popupWindow.showAtLocation(llTopParent, Gravity.NO_GRAVITY,0,0);
-                popupWindow.setBackgroundDrawable(new BitmapDrawable());
                 wholeView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {

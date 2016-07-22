@@ -7,8 +7,7 @@
     <ImageView
         android:id="@+id/iv_mall_head_icon"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:clickable="true"
+        android:layout_height="220dp"
         android:scaleType="centerCrop"
        />
 
@@ -63,7 +62,6 @@
         android:paddingRight="20dp"
         android:paddingLeft="20dp"
         android:visibility="gone"
-        android:clickable="true"
         android:orientation="horizontal">
         <TextView
             android:layout_width="0dp"

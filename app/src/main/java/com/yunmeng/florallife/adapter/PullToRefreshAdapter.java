@@ -11,6 +11,8 @@ import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 import com.yunmeng.florallife.R;
 import com.yunmeng.florallife.bean.MallChosenItem;
+import com.yunmeng.florallife.bean.MallScore;
+import com.yunmeng.florallife.fragment.ShopFragment;
 
 import java.util.List;
 

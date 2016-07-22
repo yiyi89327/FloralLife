@@ -35,7 +35,6 @@
             android:clickable="true" />
     </RelativeLayout>
 
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -46,30 +45,24 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <FrameLayout
-                android:id="@+id/image_or_video_detail"
+            <ImageView
+                android:id="@+id/image_detail"
                 android:layout_width="match_parent"
-                android:layout_height="300dp">
+                android:layout_height="200dp"
+                android:scaleType="centerCrop" />
 
-                <ImageView
-                    android:id="@+id/image_detail"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:scaleType="centerCrop" />
-
-                <fm.jiecao.jcvideoplayer_lib.JCVideoPlayerStandard
-                    android:id="@+id/video_detail"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
-
-            </FrameLayout>
+            <VideoView
+                android:id="@+id/vedio_detail"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:visibility="gone" />
 
             <TextView
                 android:id="@+id/detail_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/image_or_video_detail"
                 android:layout_marginTop="20dp"
+                android:layout_below="@+id/image_detail"
                 android:gravity="center"
                 android:textSize="20sp" />
 
@@ -77,87 +70,89 @@
                 android:id="@+id/detail_category_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/detail_title"
                 android:layout_marginTop="10dp"
+                android:layout_below="@+id/detail_title"
                 android:gravity="center" />
 
             <ImageView
                 android:layout_width="70dp"
                 android:layout_height="1dp"
-                android:layout_below="@+id/detail_category_name"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="20dp"
+                android:layout_below="@+id/detail_category_name"
                 android:src="@color/black" />
 
             <WebView
                 android:id="@+id/wb_detail"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
                 android:layout_below="@+id/detail_category_name"
-                android:layout_marginTop="30dp"></WebView>
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"></WebView>
         </RelativeLayout>
     </ScrollView>
 
-    <RelativeLayout
+    <LinearLayout
         android:id="@+id/rl2"
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:orientation="horizontal"
         android:layout_alignParentBottom="true"
-        android:padding="10dp">
+       >
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2">
+
 
         <ImageView
             android:id="@+id/clock"
-            android:layout_width="wrap_content"
+            android:layout_width="18dp"
             android:layout_height="match_parent"
-            android:src="@drawable/time_logo" />
+            android:layout_toLeftOf="@+id/detail_time"
+            android:src="@drawable/detail_menu_time" />
 
         <TextView
             android:id="@+id/detail_time"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_toRightOf="@+id/clock"
-            android:gravity="center" />
-
+            android:text="11"
+            android:gravity="center"
+            android:layout_centerHorizontal="true" />
+        </RelativeLayout>
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="3"
             android:layout_height="match_parent"
-            android:layout_alignParentRight="true"
             android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:src="@drawable/zt_item_eye" />
-
-            <TextView
+            <RadioButton
                 android:id="@+id/detail_read_num"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:gravity="center" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="5dp"
-                android:src="@drawable/zt_item_collect" />
-
-            <TextView
+                android:layout_weight="1"
+                android:button="@null"
+                android:text="11"
+                android:drawableLeft="@drawable/detail_menu_eye"/>
+            <CheckBox
                 android:id="@+id/detail_like_num"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:gravity="center" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="5dp"
-                android:src="@drawable/zt_item_discuss" />
-
-            <TextView
+                android:layout_weight="1"
+                android:button="@null"
+                android:text="11"
+                android:drawableLeft="@drawable/detail_zan_selector"/>
+            <Button
                 android:id="@+id/detail_speak_num"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:gravity="center" />
+                android:layout_weight="1"
+                android:paddingLeft="10dp"
+                android:background="@color/white"
+                android:drawableLeft="@drawable/main_menu_shoucang"/>
         </LinearLayout>
-    </RelativeLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/textGray"
+        android:layout_above="@+id/rl2"></LinearLayout>
 </RelativeLayout>

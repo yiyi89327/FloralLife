@@ -17,6 +17,7 @@ import com.yunmeng.florallife.R;
 import com.yunmeng.florallife.activity.AuthorActivity;
 import com.yunmeng.florallife.adapter.MainTopAuthorListAdapter;
 import com.yunmeng.florallife.bean.TopAuthor;
+import com.yunmeng.florallife.bean.UrlConfig;
 import com.yunmeng.florallife.utils.URLConstant;
 
 import java.util.ArrayList;
@@ -56,7 +57,7 @@ public class AuthorFragment extends Fragment {
     }
 
     private void initData() {
-        OkHttpTool.newInstance().start(URLConstant.TOP_BASE + URLConstant.AUTHOR_JOINT).callback(new IOKCallBack() {
+        OkHttpTool.newInstance().start(UrlConfig.URL_TOPBASE + UrlConfig.URL_AUTHER).callback(new IOKCallBack() {
             @Override
             public void success(String result) {
                 Gson gson = new Gson();

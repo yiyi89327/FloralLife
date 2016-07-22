@@ -18,7 +18,7 @@ import com.yunmeng.florallife.R;
 import com.yunmeng.florallife.activity.DetailActivity;
 import com.yunmeng.florallife.adapter.MainTopColumnListAdapter;
 import com.yunmeng.florallife.bean.TopColumn;
-import com.yunmeng.florallife.utils.URLConstant;
+import com.yunmeng.florallife.bean.UrlConfig;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -66,7 +66,7 @@ public class ColumnFragment extends Fragment {
     }
 
     private void initData(){
-        OkHttpTool.newInstance().start(URLConstant.TOP_BASE + URLConstant.COULMN_JOINT).callback(new IOKCallBack() {
+        OkHttpTool.newInstance().start(UrlConfig.URL_TOPBASE + UrlConfig.URL_SIMPLELIST).callback(new IOKCallBack() {
             @Override
             public void success(String result) {
                 Gson gson = new Gson();
@@ -86,7 +86,6 @@ public class ColumnFragment extends Fragment {
                 bundle.putString("img",columnList.get(position).getSmallIcon());
                 bundle.putString("title",columnList.get(position).getTitle());
                 bundle.putString("name","家居庭院");
-                bundle.putBoolean("video", columnList.get(position).isVideo());
                 bundle.putString("vediourl",columnList.get(position).getVideoUrl());
                 bundle.putString("weburl",columnList.get(position).getPageUrl());
                 bundle.putString("time",columnList.get(position).getCreateDate());

@@ -2,15 +2,20 @@ package com.yunmeng.florallife.fragment;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.text.format.DateUtils;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -21,9 +26,12 @@ import android.widget.TextView;
 import com.androidxx.yangjw.httplibrary.IOKCallBack;
 import com.androidxx.yangjw.httplibrary.OkHttpTool;
 import com.google.gson.Gson;
+import com.handmark.pulltorefresh.library.ILoadingLayout;
+import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
 import com.yunmeng.florallife.R;
 import com.yunmeng.florallife.activity.ArticleActivity;
+import com.yunmeng.florallife.activity.AuthorActivity;
 import com.yunmeng.florallife.activity.DetailActivity;
 import com.yunmeng.florallife.activity.SimpleGuideActivity;
 import com.yunmeng.florallife.activity.TopActivity;
@@ -33,12 +41,15 @@ import com.yunmeng.florallife.adapter.ZtListItemAdapter;
 import com.yunmeng.florallife.bean.GuidelistValue;
 import com.yunmeng.florallife.bean.UrlConfig;
 import com.yunmeng.florallife.bean.ZtListItemValue;
+import com.yunmeng.florallife.utils.Commentway;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import de.hdodenhof.circleimageview.CircleImageView;
 
 
 public class SimpleTitleFragment extends Fragment {
@@ -82,6 +93,39 @@ public class SimpleTitleFragment extends Fragment {
         clickway();
         listadpter();
 
+        listView.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener2<ListView>() {
+            @Override
+            public void onPullDownToRefresh(PullToRefreshBase<ListView> refreshView) {
+                adapter.notifyDataSetChanged();
+                String label = DateUtils.formatDateTime(mContext,System.currentTimeMillis(),
+                        DateUtils.FORMAT_SHOW_TIME|DateUtils.FORMAT_SHOW_DATE|DateUtils.FORMAT_ABBREV_ALL);
+                SharedPreferences preferences = mContext.getSharedPreferences("lastupdatetime",Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = preferences.edit();
+                editor.putString("label",label);
+                editor.commit();
+
+                String uptime = preferences.getString("label","");
+                listView.getLoadingLayoutProxy().setLastUpdatedLabel("最后更新时间："+ uptime);
+                listView.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                       listView .onRefreshComplete();
+                    }
+                },1000);
+            }
+
+            @Override
+            public void onPullUpToRefresh(PullToRefreshBase<ListView> refreshView) {
+
+            }
+        });
+        listView.setMode(PullToRefreshBase.Mode.PULL_FROM_START);
+        ILoadingLayout startLayout = listView.getLoadingLayoutProxy(true,false);
+        startLayout.setPullLabel("下拉可以刷新");
+        startLayout.setRefreshingLabel("正在刷新数据中...");
+        startLayout.setReleaseLabel("松开立即刷新");
+
+
         return view;
     }
 
@@ -113,22 +157,10 @@ public class SimpleTitleFragment extends Fragment {
         //list 点击事件
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
                 Intent intent = new Intent(mContext, DetailActivity.class);
-                Bundle bundle = new Bundle();
-                bundle.putString("img", ztlist.get(position - 1).getSmallIcon());
-                bundle.putString("title", ztlist.get(position - 1).getTitle());
-                bundle.putString("name", ztlist.get(position - 1).getCategory().getName());
-                bundle.putString("weburl", ztlist.get(position - 1).getPageUrl());
-                bundle.putString("time", ztlist.get(position - 1).getCreateDate());
-                bundle.putString("readnum", ztlist.get(position - 1).getRead() + "");
-                ////////////////////////////////////////////////////////////////////////
-                ////////////  这里之前传值不完全，所有相关页面都已经修改！！    ////////////
-                ///////////////////////////////////////////////////////////////////////
-                bundle.putBoolean("video", ztlist.get(position - 1).isVideo());
-                bundle.putString("vediourl", ztlist.get(position - 1).getVideoUrl());
-                bundle.putString("likenum", ztlist.get(position - 1).getAppoint() + "");
-                bundle.putString("commentnum", ztlist.get(position - 1).getFnCommentNum() + "");
+                Commentway commentway = new Commentway();
+                Bundle bundle = commentway.onclickway(ztlist, position);
                 intent.putExtra("bundle", bundle);
                 startActivity(intent);
             }
@@ -142,11 +174,10 @@ public class SimpleTitleFragment extends Fragment {
                 if (selecter.isChecked()) {
                     View views = LayoutInflater.from(mContext).inflate(R.layout.popupwindow_selecter, null);
                     popupWindow = new PopupWindow(views);
-                    popupWindow.setWidth(250);
-                    popupWindow.setHeight(250);
+                    popupWindow.setWidth(WindowManager.LayoutParams.WRAP_CONTENT);
+                    popupWindow.setHeight(WindowManager.LayoutParams.WRAP_CONTENT);
                     popupWindow.setOutsideTouchable(true);
-                    popupWindow.setFocusable(true);
-                    popupWindow.showAtLocation(ll, Gravity.TOP, 0, 200);
+                    popupWindow.showAsDropDown(rl,rl.getWidth()/2-50,0);
                     popupWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
                         @Override
                         public void onDismiss() {
@@ -171,29 +202,27 @@ public class SimpleTitleFragment extends Fragment {
                         }
                     });
 
-                } else {
+                }else {
                     popupWindow.dismiss();
                 }
             }
         });
 
         //左上角点击事件
-
         listbtn.setOnClickListener(new View.OnClickListener() {
             PopupWindow window;
-
             @Override
             public void onClick(View v) {
                 if (listbtn.isChecked()) {
                     View listbtnview = LayoutInflater.from(mContext).inflate(R.layout.popupwindow_list, null);
                     window = new PopupWindow(listbtnview);
                     window.setWidth(WindowManager.LayoutParams.MATCH_PARENT);
-                    window.setHeight(WindowManager.LayoutParams.WRAP_CONTENT);
+                    window.setHeight(WindowManager.LayoutParams.MATCH_PARENT);
                     window.setOutsideTouchable(true);
                     window.setFocusable(true);
                     ColorDrawable dw = new ColorDrawable(0xebcccccc);
                     window.setBackgroundDrawable(dw);
-                    window.showAtLocation(ll, Gravity.TOP, 0, 220);
+                    window.showAsDropDown(rl);
                     window.setOnDismissListener(new PopupWindow.OnDismissListener() {
                         @Override
                         public void onDismiss() {
@@ -210,14 +239,10 @@ public class SimpleTitleFragment extends Fragment {
                             Gson gson = new Gson();
                             guidelistValue = gson.fromJson(result, GuidelistValue.class);
                             classfyvl = guidelistValue.getResult();
-                            if (classfyName.isEmpty()) {
-                                for (int i = 0; i < classfyvl.size(); i++) {
-                                    {
-                                        classfyName.add(classfyvl.get(i).getName());
-                                    }
-                                }
+                            for (int i = 0; i < classfyvl.size();i++) {
+                                    classfyName.add(classfyvl.get(i).getName());
                             }
-                            GuideSimpleAdapter adpter = new GuideSimpleAdapter(classfyName, mContext);
+                            GuideSimpleAdapter adpter = new GuideSimpleAdapter(classfyName,mContext);
                             classfylv.setAdapter(adpter);
                         }
                     });

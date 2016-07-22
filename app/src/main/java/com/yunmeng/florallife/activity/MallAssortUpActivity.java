@@ -55,6 +55,7 @@ public class MallAssortUpActivity extends AppCompatActivity {
         Bundle bundle = getIntent().getBundleExtra("bundle");
         String title = bundle.getString("title");
         String fnId = bundle.getString("fnId");
+        Log.i("hyy", "initData:fnId =  "+ fnId);
         OkHttpTool.newInstance().start(UrlConfig.URL_SHOP_GUIDE_LIST_BASE + fnId).callback(new IOKCallBack() {
             @Override
             public void success(String result) {

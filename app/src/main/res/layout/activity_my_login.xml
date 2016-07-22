@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingTop="20dp"
     android:background="@drawable/my_fragment_bg">
 
     <Button
@@ -94,6 +95,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:textSize="10sp"
+            android:phoneNumber="true"
             android:background="@null"
             android:paddingLeft="15dp"
             android:hint="手机号/TEL"/>
@@ -127,6 +129,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:textSize="10sp"
+            android:inputType="text"
             android:background="@null"
             android:paddingLeft="15dp"
             android:hint="密码/Password"/>

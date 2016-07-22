@@ -4,12 +4,13 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="black">#000</color>
-    <color name="toolbarcolor">#55DEDEDE</color>
+    <color name="toolbarcolor">#DEDEDE</color>
     <color name="textGray">#999999</color>
     <color name="lightBackground">#22eeeeee</color>
     <color name="dividerColor">#cccccc</color>
     <color name="white">#ffffff</color>
     <color name="whiteyellow">#efef00</color>
     <color name="searchBackground">#eeeeee</color>
+    <color name="textyellow">#DAB866</color>
     <color name="alphaBlack">#33000000</color>
 </resources>

@@ -2,6 +2,7 @@ package com.yunmeng.florallife.activity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -54,9 +55,13 @@ public class MallMallDetailActivity extends AppCompatActivity {
     @Bind(R.id.shopdetail_img)
     ImageView imgs;
 
+    @Bind(R.id.shopcar_enter)
+    ImageView car;
+
     private Context mContext;
     @Bind(R.id.rl_mall_chosen_layout)
     RelativeLayout rl_mall_chosen_layout;
+    private boolean islog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +69,9 @@ public class MallMallDetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_mall_chosen_detail);
         ButterKnife.bind(this);
         mContext = this;
+
+        SharedPreferences preferences = getSharedPreferences("Islog", Context.MODE_PRIVATE);
+        islog = preferences.getBoolean("islog", false);
 
         String img = getIntent().getStringExtra("img");
         String title = getIntent().getStringExtra("big_title");
@@ -99,6 +107,13 @@ public class MallMallDetailActivity extends AppCompatActivity {
 
     private void initListener() {
 
+        car.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                        Intent intent = new Intent(getApplicationContext(), ShopCarActivity.class);
+                        startActivity(intent);
+            }
+        });
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -118,11 +133,11 @@ public class MallMallDetailActivity extends AppCompatActivity {
                 popupWindow.setFocusable(true);
                 ColorDrawable dw = new ColorDrawable(0xb0000000);
                 popupWindow.setBackgroundDrawable(dw);
-                popupWindow.showAtLocation(rl_mall_chosen_layout, Gravity.NO_GRAVITY, 0,0);
+                popupWindow.showAtLocation(rl_mall_chosen_layout, Gravity.NO_GRAVITY, 0, 0);
                 shareView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if(popupWindow.isShowing()){
+                        if (popupWindow.isShowing()) {
                             popupWindow.dismiss();
                         }
                     }
@@ -133,17 +148,26 @@ public class MallMallDetailActivity extends AppCompatActivity {
 
     }
 
-    public void onClick(View view){
-        switch(view.getId()){
+    public void onClick(View view) {
+        switch (view.getId()) {
             case R.id.shopdetail_add:
-                Toast.makeText(this, "您尚未登录，请先登录", Toast.LENGTH_SHORT).show();
-                Intent intent2 = new Intent(this,MallIconDetailActivity.class);
-                startActivity(intent2);
+                if (islog) {
+
+                } else {
+                    Toast.makeText(this, "您尚未登录，请先登录", Toast.LENGTH_SHORT).show();
+                    Intent intent2 = new Intent(this, MallIconDetailActivity.class);
+                    startActivity(intent2);
+                }
                 break;
             case R.id.shopdetail_buy:
-                Toast.makeText(this, "您尚未登录，请先登录", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(this,MyLoginActivity.class);
-                startActivity(intent);
+                if (islog) {
+                    Intent intent1 = new Intent(this, BuyActivity.class);
+                    startActivity(intent1);
+                } else {
+                    Toast.makeText(this, "您尚未登录，请先登录", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(this, MyLoginActivity.class);
+                    startActivity(intent);
+                }
                 break;
         }
     }

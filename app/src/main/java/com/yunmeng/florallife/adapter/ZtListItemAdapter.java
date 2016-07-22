@@ -1,6 +1,7 @@
 package com.yunmeng.florallife.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,12 +12,14 @@ import android.widget.TextView;
 import com.androidxx.yangjw.httplibrary.IOKCallBack;
 import com.squareup.picasso.Picasso;
 import com.yunmeng.florallife.R;
+import com.yunmeng.florallife.activity.AuthorActivity;
 import com.yunmeng.florallife.bean.ZtListItemValue;
 
 import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import de.hdodenhof.circleimageview.CircleImageView;
 
 /**
  * 首页专题的List所用的bean类
@@ -53,7 +56,7 @@ public class ZtListItemAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
 
         ViewHolder viewHolder = null;
         if(null == convertView){
@@ -63,12 +66,6 @@ public class ZtListItemAdapter extends BaseAdapter {
             viewHolder = (ViewHolder) convertView.getTag();
         }
         ZtListItemValue.ResultBean item = data.get(position);
-        // 如果有视频，则在缩略图处显示视屏播放按钮
-        if (item.isVideo()){
-            viewHolder.iv_zt_icon_playbtn.setVisibility(View.VISIBLE);
-        } else {
-            viewHolder.iv_zt_icon_playbtn.setVisibility(View.GONE);
-        }
         Picasso.with(context).load(item.getSmallIcon()).into(viewHolder.iv_zt_icon);
         Picasso.with(context).load(item.getAuthor().getHeadImg()).into(viewHolder.cv_zt_author_img);
         viewHolder.tv_zt_author_name.setText(item.getAuthor().getUserName());
@@ -77,10 +74,19 @@ public class ZtListItemAdapter extends BaseAdapter {
         viewHolder.tv_zt_tag.setText("["+item.getCategory().getName()+"]");
         viewHolder.tv_zt_title.setText(item.getTitle());
         viewHolder.tv_zt_explain.setText(item.getDesc());
-        viewHolder.tv_zt_collect_num.setText(item.getRead()+"");
-        viewHolder.tv_zt_discuss_num.setText(item.getShare()+"");
-        viewHolder.tv_zt_eye_num.setText(item.getFnCommentNum()+"");
+        viewHolder.tv_zt_collect_num.setText(item.getAppoint()+"");
+        viewHolder.tv_zt_discuss_num.setText(item.getFnCommentNum()+"");
+        viewHolder.tv_zt_eye_num.setText(item.getRead()+"");
 
+
+        viewHolder.cv_zt_author_img.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent1 = new Intent(context, AuthorActivity.class);
+                intent1.putExtra("id",data.get(position).getAuthor().getId());
+                context.startActivity(intent1);
+            }
+        });
         return convertView;
     }
 
@@ -97,10 +103,8 @@ public class ZtListItemAdapter extends BaseAdapter {
         //"fnCommentNum"
         @Bind(R.id.iv_zt_icon)
         ImageView iv_zt_icon;
-        @Bind(R.id.iv_zt_icon_playbtn)
-        ImageView iv_zt_icon_playbtn;
         @Bind(R.id.cv_zt_author_img)
-        ImageView cv_zt_author_img;
+        CircleImageView cv_zt_author_img;
 
         @Bind(R.id.tv_zt_author_name)
         TextView tv_zt_author_name;

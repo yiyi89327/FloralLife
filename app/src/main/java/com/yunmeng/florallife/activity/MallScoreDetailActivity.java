@@ -1,7 +1,10 @@
 package com.yunmeng.florallife.activity;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -59,6 +62,7 @@ public class MallScoreDetailActivity extends AppCompatActivity {
     private Context mContext;
     @Bind(R.id.rl_mall_score_layout)
     RelativeLayout rl_mall_score_layout;
+    private boolean islog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +70,10 @@ public class MallScoreDetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_mall_score_detail);
         ButterKnife.bind(this);
         mContext = this;
+
+
+        SharedPreferences preferences = getSharedPreferences("Islog", Context.MODE_PRIVATE);
+        islog = preferences.getBoolean("islog", false);
 
         String big_title = getIntent().getStringExtra("big_title");
         String en_title = getIntent().getStringExtra("en_title");
@@ -118,11 +126,11 @@ public class MallScoreDetailActivity extends AppCompatActivity {
                 popupWindow.setFocusable(true);
                 ColorDrawable dw = new ColorDrawable(0xb0000000);
                 popupWindow.setBackgroundDrawable(dw);
-                popupWindow.showAtLocation(rl_mall_score_layout, Gravity.NO_GRAVITY, 0,0);
+                popupWindow.showAtLocation(rl_mall_score_layout, Gravity.NO_GRAVITY, 0, 0);
                 shareView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if(popupWindow.isShowing()){
+                        if (popupWindow.isShowing()) {
                             popupWindow.dismiss();
                         }
                     }
@@ -132,15 +140,45 @@ public class MallScoreDetailActivity extends AppCompatActivity {
         });
     }
 
-    public void onClick(View view){
-        switch(view.getId()){
+    public void onClick(View view) {
+        switch (view.getId()) {
             case R.id.btn_score_detail_get:
-                Toast.makeText(this, "您尚未登录，请先登录", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(this,MyLoginActivity.class);
-                startActivity(intent);
+                if (islog) {
+                    AlertDialog isExit = new AlertDialog.Builder(this).create();
+                    // 设置对话框消息
+                    isExit.setMessage("提示");
+                    isExit.setMessage("您的积分不足点击查看积分规则");
+                    // 添加选择按钮并注册监听
+                    isExit.setButton("查看", listener);
+                    isExit.setButton2("取消", listener);
+                    // 显示对话框
+                    isExit.show();
+
+                } else {
+                    Toast.makeText(this, "您尚未登录，请先登录", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(this, MyLoginActivity.class);
+                    startActivity(intent);
+                }
                 break;
         }
     }
+
+    /**
+     * 监听对话框里面的button点击事件
+     */
+    DialogInterface.OnClickListener listener = new DialogInterface.OnClickListener() {
+        public void onClick(DialogInterface dialog, int which) {
+            switch (which) {
+                case AlertDialog.BUTTON_POSITIVE:// "确认"按钮进入规则界面
+                    Intent intent = new Intent(getApplicationContext(),MallScoreDetailActivity.class);
+                    startActivity(intent);
+                    finish();
+                    break;
+                case AlertDialog.BUTTON_NEGATIVE:// "取消"第二个按钮取消对话框
+                    break;
+            }
+        }
+    };
 
 
 }
